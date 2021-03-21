@@ -25,7 +25,7 @@ https://templatemo.com/tm-532-next-level
           </div>
         </div>
         <div class="col-lg-8 col-2 tm-nav-col">
-          <div class="tm-nav">
+          <div class="tm-nav"> 
             <nav class="navbar navbar-expand-lg navbar-light tm-navbar">
               <button
                 class="navbar-toggler"
