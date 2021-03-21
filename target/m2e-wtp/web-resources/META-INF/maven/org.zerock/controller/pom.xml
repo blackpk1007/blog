@@ -271,7 +271,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
-                <configuration>
+                <configuration> 
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
