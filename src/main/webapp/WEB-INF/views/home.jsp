@@ -1,10 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Next Level HTML CSS Template</title>
+    <title>Jrag blog</title>
 <!--
 Next Level CSS Template
 https://templatemo.com/tm-532-next-level
@@ -20,7 +22,7 @@ https://templatemo.com/tm-532-next-level
         <div class="col-lg-4 col-10">
           <div class="tm-brand-container">
             <div class="tm-brand-texts">
-              <h1 class="text-uppercase tm-brand-name">Next Level</h1>
+              <h1 class="text-uppercase tm-brand-name">JRag blog</h1>
             </div>
           </div>
         </div>
@@ -68,8 +70,7 @@ https://templatemo.com/tm-532-next-level
         <div class="col-12 tm-page-cols-container">
           <div class="tm-page-col-left tm-welcome-box tm-bg-primary">
             <p class="tm-welcome-text">
-              <em>"Hello, this is a clean layout. left side is the text and right
-                side is a parallax image."</em>
+              <em>"안녕하세요. 백엔드 개발자 <br>전영수 입니다. "</em>
             </p>
           </div>
           <div class="tm-page-col-right">
