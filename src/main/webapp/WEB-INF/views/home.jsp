@@ -25,7 +25,7 @@ https://templatemo.com/tm-532-next-level
               <h1 class="text-uppercase tm-brand-name">JRag blog</h1>
             </div>
           </div>
-        </div>
+        </div> 
         <div class="col-lg-8 col-2 tm-nav-col">
           <div class="tm-nav"> 
             <nav class="navbar navbar-expand-lg navbar-light tm-navbar">
