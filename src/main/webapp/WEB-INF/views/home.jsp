@@ -1,192 +1,198 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
 <!DOCTYPE html>
-
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Jrag blog</title>
-<!--
-Next Level CSS Template
-https://templatemo.com/tm-532-next-level
--->
-    <link rel="stylesheet"  href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
-    <link rel="stylesheet" href="/resources/css/all.min.css" />
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/resources/css/templatemo-style.css" />
-  </head>
-  <body>
-    <div class="container-fluid">
-      <div class="row tm-brand-row">
-        <div class="col-lg-4 col-10">
-          <div class="tm-brand-container">
-            <div class="tm-brand-texts">
-              <h1 class="text-uppercase tm-brand-name">JRag blog</h1>
-            </div>
-          </div>
-        </div> 
-        <div class="col-lg-8 col-2 tm-nav-col">
-          <div class="tm-nav"> 
-            <nav class="navbar navbar-expand-lg navbar-light tm-navbar">
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto mr-0">
-                  <li class="nav-item active">
-                    <div class="tm-nav-link-highlight"></div>
-                    <a class="nav-link" href="#"
-                      >Home <span class="sr-only">(current)</span></a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <div class="tm-nav-link-highlight"></div>
-                    <a class="nav-link" href="about.html">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <div class="tm-nav-link-highlight"></div>
-                    <a class="nav-link" href="gallery.html">Gallery</a>
-                  </li>
-                  <li class="nav-item">
-                    <div class="tm-nav-link-highlight"></div>
-                    <a class="nav-link" href="contact.html">Contact</a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
-
-      <div class="row tm-welcome-row">
-        <div class="col-12 tm-page-cols-container">
-          <div class="tm-page-col-left tm-welcome-box tm-bg-primary">
-            <p class="tm-welcome-text">
-              <em>"안녕하세요. 백엔드 개발자 <br>전영수 입니다. "</em>
-            </p>
-          </div>
-          <div class="tm-page-col-right">
-            <div
-              class="tm-welcome-parallax"
-              data-parallax="scroll"
-              data-image-src="img/blue-contem-girl.jpg"
-            ></div>
-          </div>
-        </div>
-      </div>
-
-      <section class="row tm-pt-4 tm-pb-6">
-        <div class="col-12 tm-page-cols-container">
-          <div class="tm-page-col-right">
-            <h2 class="tm-text-secondary tm-mb-5">
-              Nunc tristique velit ut semper
-            </h2>
-            <p class="tm-mb-6">
-              Homepage main photo is provided by <strong>Moose Photos</strong> from <strong>Pexels</strong>. Next Level CSS Template is brought to you by Template Mo website. You can feel free to adapt it for your websites. No need to put a footer credit link. Please kindly spread a word about us. Thank you. If you have any question, feel free to contact us on Facebook page.
-              
-            </p>
-            <p class="mb-0">
-           	  Nullam nec dictum dolor. Sed ultricies purus nec suscipit vulputate. Fusce a massa eu orci
-              vulputate varius. Praesent id felis ac erat elementum condimentum. Pellentesque a
-              libero vitae nisi vestibulum tempor vitae vitae nulla. Praesent ut
-              eleifend ligula, nec pretium erat.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <div class="tm-page-col-right">
-        <div class="row tm-pt-7 tm-pb-6">
-          <div class="col-md-6 tm-home-section-2-left">
-            <div
-              class="img-fluid tm-mb-4 tm-small-parallax"
-              data-parallax="scroll"
-              data-image-src="img/image-1.jpg"></div>
-            <div>
-              <h3 class="tm-text-secondary tm-mb-4">
-                Quisque at rutrum felis
-              </h3>
-              <p class="tm-mb-5">
-                Photo by CoWomen from Pexels. Morbi sollicitudin nibh eu
-                dignissim mollis. Etiam turpis tortor, ultricies sit amet
-                placerat suscipit, auctor eu diam.
-              </p>
-              <ul class="tm-list-plus">
-                <li>Vestibulum finibus consectetur nulla</li>
-                <li>Eget imperdiet eros interdum sit amet</li>
-                <li>Sed a lacinia lorem, sed luctus enim</li>
-                <li>2 small images has a parallax effect</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-6 tm-home-section-2-right">
-            <div
-              class="img-fluid tm-mb-4 tm-small-parallax"
-              data-parallax="scroll"
-              data-image-src="img/image-2.jpg"></div>
-            <div>
-              <h3 class="tm-text-secondary tm-mb-4">
-                Sed ultricies tortor vitae
-              </h3>
-              <p class="tm-section-2-text">
-                Photo by <strong>CoWomen</strong> from <strong>Pexels</strong>. Quisque tortor justo, pharetra in
-                eros sed, accumsan dapibus dolor. In luctus sed ante a
-                tristique.
-              </p>
-              <p>
-                You cannot re-distribute our template on your website for download. Ut ornare pulvinar lorem a elementum. Cras sollicitudin ante velit, eget facilisis sem viverra nex. Etiam quis mattis urna.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- row -->
-
-      <!-- Call to Action -->
-      <section class="row" id="tmCallToAction">
-        <div class="col-12 tm-page-cols-container tm-call-to-action-col">
-          <div class="tm-page-col-right">
-            <div class="tm-call-to-action-box">
-              <i class="fas fa-3x fa-rss-square tm-call-to-action-icon"></i>
-              <div class="tm-call-to-action-text">
-                <h3 class="tm-call-to-action-title">
-                  Vivamus sollicitudin tellus
-                </h3>
-                <p class="tm-call-to-action-description">
-                  Maecenas maximus tellus in dolor auctor tristique. Nam
-                  hendrerit posuere laoreet. Aliquam erat volutpat. Nulla eros
-                  est, imperdiet vel feugiat non, ullamcorper mattis nulla.
-                </p>
-                <form action="#" method="GET" class="tm-call-to-action-form">
-                  <input type="email" name="email" placeholder="Email" class="tm-email-input" required />
-                  <button type="submit" class="btn btn-primary">
-                    Subscribe
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Page footer -->
-      <footer class="row tm-page-footer">
-        <p class="col-12 tm-copyright-text mb-0">
-          Copyright &copy; 2019 Next Level Company... Designed by
-          <a href="https://fb.com/templatemo" rel="nofollow" class="tm-copyright-link">Template Mo</a>
-        </p>
-      </footer>
-    </div>
-
-    <script src="/resources/js/jquery.min.js"></script>
-    <script src="/resources/js/parallax.min.js"></script>
-    <script src="/resources/js/bootstrap.min.js"></script>
-  </body>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JRag Portfolio</title>
+<link rel='stylesheet' href='/resources/css/woocommerce-layout.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='/resources/css/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)'/>
+<link rel='stylesheet' href='/resources/css/woocommerce.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='/resources/css/font-awesome.min.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='/resources/style.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all'/>
+<link rel='stylesheet' href='/resources/css/easy-responsive-shortcodes.css' type='text/css' media='all'/>
+</head>
+<body class="blog">
+<div id="page">
+	<div class="container">
+		<header id="masthead" class="site-header">
+		<div class="site-branding">
+			<h1 class="site-title"><a href="index.html" rel="home">JRag</a></h1>
+			<h2 class="site-description">Minimalist Portfolio HTML Template</h2>
+		</div>
+		<nav id="site-navigation" class="main-navigation">
+		<button class="menu-toggle">Menu</button>
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+		<div class="menu-menu-1-container">
+			<ul id="menu-menu-1" class="menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="blog.html">Blog</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+		</nav>
+		</header>
+		<!-- #masthead -->
+		<div id="content" class="site-content">
+			<div id="primary" class="content-area column two-thirds">
+				<main id="main" class="site-main" role="main">
+				<div class="grid bloggrid">
+				
+					<article>
+					<header class="entry-header">
+					<h1 class="entry-title"><a href="blog-single.html" rel="bookmark">Somewhere in time</a></h1>
+					<div class="entry-meta">
+						<span class="posted-on"><time class="entry-date published">April 12, 2016</time></span>						
+						<span class="comments-link"><a href="#">Leave a comment</a></span>
+					</div>
+					<div class="entry-thumbnail">						
+						<img src="http://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/10/2015/09/30160348/sep4.jpg" alt="">
+					</div>
+					</header>
+					<div class="entry-summary">
+						<p>
+							When Mary Lennox was sent to Manor to live with her uncle everybody said she was the most disagreeablelooking child ever seen. It was true, too. She had a little thin face and a little thin body, thin light hair and a sour expression. Her hair was yellow, and her face was yellow because she <a class="more-link" href="blog-single.html">Read more</a>
+						</p>
+					</div>
+					</article>
+					
+					<article>
+					<header class="entry-header">
+					<h1 class="entry-title"><a href="blog-single.html" rel="bookmark">Thanks for watching</a></h1>
+					<div class="entry-meta">
+						<span class="posted-on"><time class="entry-date published">April 11, 2016</time></span>						
+						<span class="comments-link"><a href="#">1 Comment</a></span>
+					</div>
+					<div class="entry-thumbnail">						
+						<img src="http://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/10/2015/09/30162427/sep2.jpg" alt="">
+					</div>
+					</header>
+					<div class="entry-summary">
+						<p>
+							When Mary Lennox was sent to Manor to live with her uncle everybody said she was the most disagreeablelooking child ever seen. It was true, too. She had a little thin face and a little thin body, thin light hair and a sour expression. Her hair was yellow, and her face was yellow because she <a class="more-link" href="blog-single.html">Read more</a>
+						</p>
+					</div>
+					</article>
+					
+	
+					<article>
+					<header class="entry-header">
+					<h1 class="entry-title"><a href="blog-single.html" rel="bookmark">Dreaming Away</a></h1>
+					<div class="entry-meta">
+						<span class="posted-on"><time class="entry-date published">April 10, 2016</time></span>						
+						<span class="comments-link"><a href="#">Leave a comment</a></span>
+					</div>
+					<div class="entry-thumbnail">						
+						<img src="http://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/10/2015/09/15211639/p3.jpg" alt="">
+					</div>
+					</header>
+					<div class="entry-summary">
+						<p>
+							When Mary Lennox was sent to Manor to live with her uncle everybody said she was the most disagreeablelooking child ever seen. It was true, too. She had a little thin face and a little thin body, thin light hair and a sour expression. Her hair was yellow, and her face was yellow because she <a class="more-link" href="blog-single.html">Read more</a>
+						</p>
+					</div>
+					</article>
+					
+					<article>
+					<header class="entry-header">
+					<h1 class="entry-title"><a href="blog-single.html" rel="bookmark">Sunny Days</a></h1>
+					<div class="entry-meta">
+						<span class="posted-on"><time class="entry-date published">April 9, 2016</time></span>						
+						<span class="comments-link"><a href="#">2 Comments</a></span>
+					</div>
+					<div class="entry-thumbnail">						
+						<img src="http://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/10/2015/09/15222855/sep1.jpg" alt="">
+					</div>
+					</header>
+					<div class="entry-summary">
+						<p>
+							When Mary Lennox was sent to Manor to live with her uncle everybody said she was the most disagreeablelooking child ever seen. It was true, too. She had a little thin face and a little thin body, thin light hair and a sour expression. Her hair was yellow, and her face was yellow because she <a class="more-link" href="blog-single.html">Read more</a>
+						</p>
+					</div>
+					</article>	
+				
+				
+					<article>
+					<header class="entry-header">
+					<h1 class="entry-title"><a href="blog-single.html" rel="bookmark">Holiday Travel</a></h1>
+					<div class="entry-meta">
+						<span class="posted-on"><time class="entry-date published">April 6, 2016</time></span>						
+						<span class="comments-link"><a href="#">Leave a comment</a></span>
+					</div>
+					<div class="entry-thumbnail">						
+						<img src="http://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/10/2015/09/15223245/p6.jpg" alt="">
+					</div>
+					</header>
+					<div class="entry-summary">
+						<p>
+							When Mary Lennox was sent to Manor to live with her uncle everybody said she was the most disagreeablelooking child ever seen. It was true, too. She had a little thin face and a little thin body, thin light hair and a sour expression. Her hair was yellow, and her face was yellow because she <a class="more-link" href="blog-single.html">Read more</a>
+						</p>
+					</div>
+					</article>
+					
+					<article>
+					<header class="entry-header">
+					<h1 class="entry-title"><a href="blog-single.html" rel="bookmark">Driving Summer</a></h1>
+					<div class="entry-meta">
+						<span class="posted-on"><time class="entry-date published">April 7, 2016</time></span>						
+						<span class="comments-link"><a href="#">3 Comments</a></span>
+					</div>
+					<div class="entry-thumbnail">						
+						<img src="http://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/10/2015/09/18160911/4.jpg" alt="">
+					</div>
+					</header>
+					<div class="entry-summary">
+						<p>
+							When Mary Lennox was sent to Manor to live with her uncle everybody said she was the most disagreeablelooking child ever seen. It was true, too. She had a little thin face and a little thin body, thin light hair and a sour expression. Her hair was yellow, and her face was yellow because she <a class="more-link" href="blog-single.html">Read more</a>
+						</p>
+					</div>
+					</article>					
+					
+				</div>
+				<div class="clearfix">
+				</div>
+				<nav class="pagination"></nav>
+				</main>
+				<!-- #main -->
+			</div>
+			<!-- #primary -->
+			
+			<div id="secondary" class="column third">
+				<div id="sidebar-1" class="widget-area" role="complementary">
+				
+					<aside id="text-5" class="widget widget_text">
+					<h4 class="widget-title">About Me</h4>
+					<div class="textwidget">
+						<p>
+							<img src="http://www.themepush.com/demo-hypnosa/wp-content/uploads/sites/9/2015/09/avatar5.png" class="alignleft" style="width:80px;border-radius:50%;margin-bottom:0;"> I'm a professional photographer for 10 years. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+						</p>
+					</div>
+					</aside>
+				</div>
+				<!-- .widget-area -->
+			</div>
+			<!-- #secondary -->
+		</div>
+		<!-- #content -->
+	</div>
+	<!-- .container -->
+	<footer id="colophon" class="site-footer">
+	<div class="container">
+		<div class="site-info">
+			<h1 style="font-family: 'Herr Von Muellerhoff';color: #ccc;font-weight:300;text-align: center;margin-bottom:0;margin-top:0;line-height:1.4;font-size: 46px;">Jrag</h1>
+			<a target="blank" href="https://www.wowthemes.net/">&copy; Moschino - Free HTML Template by WowThemes.net</a>
+		</div>
+	</div>
+	</footer>
+	<a href="#top" class="smoothup" title="Back to top"><span class="genericon genericon-collapse"></span></a>
+</div>
+<!-- #page -->
+<script src='/resources/js/jquery.js'></script>
+<script src='/resources/js/plugins.js'></script>
+<script src='/resources/js/scripts.js'></script>
+<script src='/resources/js/masonry.pkgd.min.js'></script>
+</body>
 </html>
