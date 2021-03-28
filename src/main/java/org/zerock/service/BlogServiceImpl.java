@@ -14,11 +14,6 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class BlogServiceImpl implements BlogService{
 
-	@Override
-	public List<BlogVO> getList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public boolean remove(Long bno) {
@@ -42,6 +37,12 @@ public class BlogServiceImpl implements BlogService{
 	public BlogVO get(Long bno) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void getList(BlogVO blog) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

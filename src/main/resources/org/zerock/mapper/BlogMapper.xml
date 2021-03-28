@@ -4,7 +4,20 @@
 <mapper namespace="org.zerock.mapper.BlogMapper">
 	<select id="getList" resultType="org.zerock.domain.BlogVO">
 		<![CDATA[
-			select * from blog_board
+			select * from blog_board where boardwriter = #{boardwriter}
 		]]>
 	</select>
+	
+	<insert id="insert">
+		insert into blog_board (boardwriter, boardtitle, boardcontent, boardbno) 
+		values (#{boardwriter}, #{boardtitle}, #{boardcontent}, (select nvl(max(boardbno)+1, 1) from blog_board))
+	</insert>
+	
+	<select id="read" resultType="org.zerock.domain.BlogVO">
+		select * from blog_board where boardbno = #{boardbno}
+	</select>
+	
+	<update id="update">
+		update 
+	</update>
 </mapper>

@@ -6,5 +6,9 @@ import org.zerock.domain.BlogVO;
 
 public interface BlogMapper {
 	
-	public List<BlogVO> getList();
+	public void getList(BlogVO blog);
+	
+	public void insert(BlogVO blog);
+	
+	public BlogVO read(Long bno);
 }

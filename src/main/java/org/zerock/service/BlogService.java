@@ -6,7 +6,7 @@ import org.zerock.domain.BlogVO;
 
 public interface BlogService {
 	
-	public List<BlogVO> getList();
+	public void getList(BlogVO blog);
 	
 	public boolean remove(Long bno);
 	
