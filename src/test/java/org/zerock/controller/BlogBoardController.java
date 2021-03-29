@@ -27,9 +27,7 @@ public class BlogBoardController {
 	@Test
 	public void testgetList() throws Exception{
 
-		BlogVO blog = new BlogVO();
-		blog.setBoardwriter("admin12");
-		mapper.getList(blog);
+		mapper.getList();
 		
 		log.info(mapper);
 		
@@ -56,4 +54,21 @@ public class BlogBoardController {
 		log.info(blog);
 		
 	}
+	
+	@Test
+	public void testupdate() throws Exception{
+		
+		BlogVO blog = new BlogVO();
+		blog.setBoardtitle("테스트수정제목");
+		blog.setBoardcontent("테스트수정내용");
+		blog.setBoardbno(3L);
+		mapper.update(blog);
+		
+		log.info(mapper);
+	}
 }
+
+
+
+
+

@@ -2,10 +2,13 @@ package org.zerock.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zerock.domain.BlogVO;
+import org.zerock.mapper.BlogMapper;
 
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 
@@ -14,7 +17,9 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class BlogServiceImpl implements BlogService{
 
-
+	@Setter(onMethod_ = {@Autowired})
+	private BlogMapper mapper;
+	
 	@Override
 	public boolean remove(Long bno) {
 		// TODO Auto-generated method stub
@@ -40,9 +45,10 @@ public class BlogServiceImpl implements BlogService{
 	}
 
 	@Override
-	public void getList(BlogVO blog) {
-		// TODO Auto-generated method stub
+	public List<BlogVO> getList() {
+		log.info("getList");
 		
+		return mapper.getList();
 	}
 
 }
