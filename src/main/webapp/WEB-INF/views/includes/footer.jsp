@@ -11,9 +11,9 @@
 	<a href="#top" class="smoothup" title="Back to top"><span class="genericon genericon-collapse"></span></a>
 </div>
 <!-- #page -->
-<script src='/resources/js/jquery.js'></script>
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 <script src='/resources/js/plugins.js'></script>
 <script src='/resources/js/scripts.js'></script>
 <script src='/resources/js/masonry.pkgd.min.js'></script>
+
 </body>
-</html>

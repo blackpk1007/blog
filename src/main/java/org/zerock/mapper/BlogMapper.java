@@ -12,8 +12,8 @@ public interface BlogMapper {
 	
 	public BlogVO read(Long bno);
 	
-	public void update(BlogVO blog);
+	public int update(BlogVO blog);
 	
-	public int remove(Long bno);
+	public int delete(Long bno);
 
 }

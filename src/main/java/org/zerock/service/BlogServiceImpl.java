@@ -22,26 +22,31 @@ public class BlogServiceImpl implements BlogService{
 	
 	@Override
 	public boolean remove(Long bno) {
-		// TODO Auto-generated method stub
-		return false;
+		log.info("delete : " + bno);
+		
+		return mapper.delete(bno) == 1;
 	}
 
 	@Override
 	public boolean modify(BlogVO blog) {
-		// TODO Auto-generated method stub
-		return false;
+		log.info("modify : " + blog);
+		
+		return mapper.update(blog) == 1;
 	}
 
 	@Override
 	public void register(BlogVO blog) {
-		// TODO Auto-generated method stub
+		log.info("register");
+		
+		mapper.insert(blog);
 		
 	}
 
 	@Override
 	public BlogVO get(Long bno) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("get : " + bno);
+		
+		return mapper.read(bno);
 	}
 
 	@Override

@@ -4,6 +4,9 @@
 
 <%@ include file="../includes/header.jsp" %>
 		<!-- #masthead -->
+     <div class="panel-heading">Board List Page
+            	<button id='regBtn' type="button" class="btn btn-xs pull-right">Register New Blog</button>
+     </div>   <!-- /.panel-heading -->
 		<div id="content" class="site-content">
 			<div id="primary" class="content-area column two-thirds">
 				<main id="main" class="site-main" role="main">
@@ -15,9 +18,6 @@
 					<div class="entry-meta">
 						<span class="posted-on"><time class="entry-date published"><fmt:formatDate pattern="yyyy-MM-dd" value="${blog.boardsysdate}"/></time></span>
 					</div>
-					<div class="entry-thumbnail">						
-						<img src="http://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/10/2015/09/30160348/sep4.jpg" alt="">
-					</div>
 					</header>
 					<div class="entry-summary">
 						<p><c:out value="${blog.boardcontent}"/></p>
@@ -25,9 +25,6 @@
 					</c:forEach>
 					</article>
 				</div>
-				<div class="clearfix">
-				</div>
-				<nav class="pagination"></nav>
 				</main>
 				<!-- #main -->
 			</div>
@@ -35,3 +32,16 @@
 		</div>
 		<!-- #content -->
 <%@ include file="../includes/footer.jsp" %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$("#regBtn").on("click", function(){
+		
+		self.location = "/blog/register";
+	});
+	
+});
+</script>
+
+</html>
