@@ -54,15 +54,17 @@ public class BlogController {
 		return "redirect:/blog/list";
 	}
 	
-	@GetMapping("/get")
-	public void get(@RequestParam("bno") Long bno, Model model) {
+	@GetMapping({"/get", "/modify"})
+	public void get(@RequestParam("boardbno") Long bno, Model model) {
 		
-		log.info("get");
+		log.info("get or modify");
 		
+		model.addAttribute("list", service.getList());
 		model.addAttribute("blog", service.get(bno));
+		
 	}
 	
-	@GetMapping("/modify")
+	@PostMapping("/modify")
 	public String modify(BlogVO blog, RedirectAttributes rttr) {
 		
 		log.info("modify : " + blog);
@@ -73,8 +75,8 @@ public class BlogController {
 		return "redirect:/blog/list";
 	}
 	
-	@GetMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
+	@PostMapping("/remove")
+	public String remove(@RequestParam("boardbno") Long bno, RedirectAttributes rttr) {
 		
 		log.info("remove : " + bno);
 		

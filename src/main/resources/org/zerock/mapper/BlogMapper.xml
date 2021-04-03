@@ -4,7 +4,7 @@
 <mapper namespace="org.zerock.mapper.BlogMapper">
 	<select id="getList" resultType="org.zerock.domain.BlogVO">
 	<![CDATA[
-		select * from blog_board where boardbno > 0
+		select * from blog_board where boardbno > 0 order by boardbno desc 
 	]]>
 	</select>
 	
@@ -18,12 +18,17 @@
 	</select>
 	
 	<update id="update">
-		update blog_board set boardtitle=#{boardtitle}, 
-							  boardcontent=#{boardcontent} 
+		update blog_board set boardcontent = #{boardcontent} 
 							  where boardbno = #{boardbno}
 	</update>
 	
 	<delete id="delete">
 		delete from blog_board where boardbno = #{boardbno}
 	</delete>
+	
+	<select id="getListWithPagingTen" resultType="org.zerock.domain.BlogVO">
+		<![CDATA[
+			select 
+		]]>
+	</select>
 </mapper>

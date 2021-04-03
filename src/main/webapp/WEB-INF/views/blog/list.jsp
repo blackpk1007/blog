@@ -14,8 +14,8 @@
 					<article>
 					<c:forEach items="${list}" var="blog">
 					<header class="entry-header">
-					<input type='hidden' value='<c:out value="${blog.boardbno }"/>'>
-					<h1 class="entry-title"><a href='/blog/get?bno=<c:out value="${blog.boardbno}"/>'
+					<input type='hidden' name="boardbno" value='<c:out value="${blog.boardbno }"/>'>
+					<h1 class="entry-title"><a href='/blog/get?boardbno=<c:out value="${blog.boardbno}"/>'
 					rel="bookmark"><c:out value="${blog.boardtitle}"/></a></h1>
 					<div class="entry-meta">
 						<span class="posted-on"><time class="entry-date published">
