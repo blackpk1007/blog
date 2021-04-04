@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zerock.domain.BlogVO;
+import org.zerock.domain.CriteriaTen;
 import org.zerock.mapper.BlogMapper;
 
 import lombok.AllArgsConstructor;
@@ -50,10 +51,11 @@ public class BlogServiceImpl implements BlogService{
 	}
 
 	@Override
-	public List<BlogVO> getList() {
+	public List<BlogVO> getList(CriteriaTen cri) {
 		log.info("getList");
 		
-		return mapper.getList();
+		return mapper.getListWithPagingTen(cri);
 	}
+
 
 }

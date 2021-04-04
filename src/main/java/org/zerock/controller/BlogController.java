@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BlogVO;
+import org.zerock.domain.CriteriaTen;
+import org.zerock.domain.PageDTO;
 import org.zerock.service.BlogService;
 
 import lombok.AllArgsConstructor;
@@ -22,19 +24,20 @@ public class BlogController {
 	private BlogService service;
 	
 	@GetMapping("/home")
-	public void home(Model model) {
+	public void home(CriteriaTen cri, Model model) {
 		
 		log.info("home");
 		
-		model.addAttribute("list", service.getList());
+		model.addAttribute("list", service.getList(cri));
 	}
 	
 	@GetMapping("/list")
-	public void list(Model model) {
+	public void list(CriteriaTen cri, Model model) {
 		
 		log.info("list");
 		
-		model.addAttribute("list", service.getList());
+		model.addAttribute("list", service.getList(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 	}
 	
 	@GetMapping("/register")
@@ -55,11 +58,11 @@ public class BlogController {
 	}
 	
 	@GetMapping({"/get", "/modify"})
-	public void get(@RequestParam("boardbno") Long bno, Model model) {
+	public void get(CriteriaTen cri, @RequestParam("boardbno") Long bno, Model model) {
 		
 		log.info("get or modify");
 		
-		model.addAttribute("list", service.getList());
+		model.addAttribute("list", service.getList(cri));
 		model.addAttribute("blog", service.get(bno));
 		
 	}

@@ -2,10 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.zerock.mapper.BlogMapper">
+
 	<select id="getList" resultType="org.zerock.domain.BlogVO">
-	<![CDATA[
-		select * from blog_board where boardbno > 0 order by boardbno desc 
-	]]>
+		<![CDATA[
+			select * from blog_board where boardbno > 0 order by boardbno desc 
+		]]>
+	</select>
+	
+	<select id="getListWithPagingTen" resultType="org.zerock.domain.BlogVO">
+		<![CDATA[
+			select boardbno, boardtitle, boardsysdate from 
+			(select rownum rn, boardbno, boardtitle, boardsysdate from
+			blog_board where rownum <= #{pageNum} * #{amount})
+			where rn > (#{pageNum} -1) * #{amount} order by boardbno desc 
+		]]>
+	</select>
+		
+	<select id="read" resultType="org.zerock.domain.BlogVO">
+		select * from blog_board where boardbno = #{boardbno}
 	</select>
 	
 	<insert id="insert">
@@ -13,22 +27,13 @@
 		values (#{boardwriter}, #{boardtitle}, #{boardcontent}, (select nvl(max(boardbno)+1, 1) from blog_board))
 	</insert>
 	
-	<select id="read" resultType="org.zerock.domain.BlogVO">
-		select * from blog_board where boardbno = #{boardbno}
-	</select>
-	
 	<update id="update">
 		update blog_board set boardcontent = #{boardcontent} 
 							  where boardbno = #{boardbno}
 	</update>
-	
+ 
 	<delete id="delete">
 		delete from blog_board where boardbno = #{boardbno}
 	</delete>
-	
-	<select id="getListWithPagingTen" resultType="org.zerock.domain.BlogVO">
-		<![CDATA[
-			select 
-		]]>
-	</select>
+
 </mapper>

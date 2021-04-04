@@ -20,6 +20,6 @@ public interface BlogMapper {
 	
 	public List<BlogVO> getListWithPagingTen(CriteriaTen cri);
 	
-	public List<BlogVO> getListWithPagingFive(CriteriaFive cri);
+	//public List<BlogVO> getListWithPagingFive(CriteriaFive cri);
 
 }
