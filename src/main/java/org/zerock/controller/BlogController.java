@@ -91,6 +91,12 @@ public class BlogController {
 		}
 		return "redirect:/blog/list";
 	}
+	
+	@GetMapping("/about")
+	public void about(Model model) {
+		
+		model.addAttribute("about", "");
+	}
 }
 
 
