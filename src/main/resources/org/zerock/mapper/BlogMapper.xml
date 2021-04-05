@@ -11,10 +11,19 @@
 	
 	<select id="getListWithPagingTen" resultType="org.zerock.domain.BlogVO">
 		<![CDATA[
-			select boardbno, boardtitle, boardsysdate from 
-			(select rownum rn, boardbno, boardtitle, boardsysdate from
-			blog_board where rownum <= #{pageNum} * #{amount})
-			where rn > (#{pageNum} -1) * #{amount} order by boardbno desc 
+			select boardbno, boardtitle, boardsysdate 
+			from (select /*+INDEX_DESC(blog_board pk_board)*/ rownum rn, boardbno, boardtitle, boardsysdate 
+			from blog_board where rownum <= #{pageNum} * #{amount})
+			where rn > (#{pageNum} -1) * #{amount}
+		]]>
+	</select>
+	
+	<select id="getListWithPagingFive" resultType="org.zerock.domain.BlogVO">
+		<![CDATA[
+			select boardbno, boardtitle, boardsysdate 
+			from (select /*+INDEX_DESC(blog_board pk_board)*/ rownum rn, boardbno, boardtitle, boardsysdate 
+			from blog_board where rownum <= #{pageNum} * #{amount})
+			where rn > (#{pageNum} -1) * #{amount}
 		]]>
 	</select>
 		

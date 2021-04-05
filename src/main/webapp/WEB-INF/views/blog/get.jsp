@@ -21,6 +21,26 @@
 					</c:forEach>
 					</article>
 				</div>
+			<div class="page">
+				<ul class="page-numbers">
+					<c:if test="${pageMaker.prev }">
+						<li class="page-numbers prev"><a href="${pageMaker.startPage - 1}">Previous</a></li>
+					</c:if>
+					
+					<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+						<li class="page-numbers" ${pageMaker.cri.pageNum == num ? "active":""}><a href="${num }">${num }</a></li>
+					</c:forEach>
+					
+					<c:if test="${pageMaker.next }">
+						<li class="page-numbers next"><a href="${pageMaker.endPage + 1 }">Next</a></li>
+					</c:if>
+				</ul>
+			</div>
+			<form id='actionForm' action="/blog/get" method="get">
+				<input type="hidden" name='boardbno' value="${blog.boardbno }">
+				<input type="hidden" name='pageNum' value="${pageMaker.cri.pageNum }">
+				<input type="hidden" name='amount' value="${pageMaker.cri.amount }">
+			</form>
 				</main>
 				<!-- #main -->
 			</div>
@@ -73,6 +93,18 @@ $(document).ready(function(){
 		commentform.find("#boardbno").remove();
 		commentform.attr("action", "/blog/list").submit();
 		
+	});
+	
+	var actionForm = $("#actionForm")
+	
+	$(".page-numbers a").on("click", function(e){
+		
+		e.preventDefault();
+		
+		console.log('click');
+		
+		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+		actionForm.submit();
 	});
 	
 });
