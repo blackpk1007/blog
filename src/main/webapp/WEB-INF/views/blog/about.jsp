@@ -3,25 +3,26 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ include file="../includes/header.jsp" %>
-		<!-- #masthead -->
+<!-- #masthead -->
 		<div id="content" class="site-content">
-			<div id="primary" class="content-area column two-thirds">
-				<main id="main" class="site-main" role="main">
-				<div class="grid bloggrid">
-					<article>
-					<c:forEach items="${list}" var="blog">
-					<header class="entry-header">
-					<input type='hidden' name="boardbno" value='<c:out value="${blog.boardbno }"/>'>
-					<h1 class="entry-title"><a href='/blog/get?boardbno=<c:out value="${blog.boardbno}"/>'
-					rel="bookmark"><c:out value="${blog.boardtitle}"/></a></h1>
-					<div class="entry-meta">
-						<span class="posted-on"><time class="entry-date published">
-						<fmt:formatDate pattern="yyyy-MM-dd" value="${blog.boardsysdate}"/></time></span>
-					</div>
-					</header>
-					</c:forEach>
-					</article>
-				</div>
+			<div id="primary" class="content-area column full">
+				<main id="main" class="site-main">
+				
+				<article class="hentry">
+				<header class="entry-header">
+				<h1 class="entry-title">About</h1>	
+				</header>
+				<!-- .entry-header -->
+				
+				<c:forEach items="${about}" var="blog">
+				<div class="entry-content">
+				<p><c:out value="${blog.userid}"/></p>
+				<p><c:out value="${blog.userinformation}"/></p>
+				<h2 style="font-family: 'Herr Von Muellerhoff';color:#ccc;font-weight:300;">Yours, Von Muellerhoff</h2>
+				</div><!-- .entry-content -->
+				</c:forEach>
+				</article>
+				
 				</main>
 				<!-- #main -->
 			</div>

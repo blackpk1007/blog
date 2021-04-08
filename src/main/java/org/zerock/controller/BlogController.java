@@ -13,6 +13,7 @@ import org.zerock.domain.CriteriaTen;
 import org.zerock.domain.PageDTOF;
 import org.zerock.domain.PageDTOT;
 import org.zerock.service.BlogService;
+import org.zerock.service.UserService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -23,14 +24,14 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class BlogController {
 	
-	private BlogService service;
-	
+	private BlogService bservice;
+	private UserService uservice;
 	@GetMapping("/home")
 	public void home(Model model) {
 		
 		log.info("home");
 		
-		model.addAttribute("list", service.getList());
+		model.addAttribute("list", bservice.getList());
 	}
 	
 	@GetMapping("/list")
@@ -38,7 +39,7 @@ public class BlogController {
 		
 		log.info("list");
 		
-		model.addAttribute("list", service.getListT(cri));
+		model.addAttribute("list", bservice.getListT(cri));
 		model.addAttribute("pageMaker", new PageDTOT(cri, 123));
 	}
 	
@@ -52,7 +53,7 @@ public class BlogController {
 		
 		log.info("register : " + blog);
 		
-		service.register(blog);
+		bservice.register(blog);
 		
 		rttr.addFlashAttribute("result", blog.getBoardbno());
 		
@@ -64,8 +65,8 @@ public class BlogController {
 		
 		log.info("get or modify");
 		
-		model.addAttribute("list", service.getListF(cri));
-		model.addAttribute("blog", service.get(bno));
+		model.addAttribute("list", bservice.getListF(cri));
+		model.addAttribute("blog", bservice.get(bno));
 		model.addAttribute("pageMaker", new PageDTOF(cri, 123));
 		
 	}
@@ -75,7 +76,7 @@ public class BlogController {
 		
 		log.info("modify : " + blog);
 		
-		if(service.modify(blog)) {
+		if(bservice.modify(blog)) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/blog/list";
@@ -86,16 +87,16 @@ public class BlogController {
 		
 		log.info("remove : " + bno);
 		
-		if(service.remove(bno)) {
+		if(bservice.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/blog/list";
 	}
 	
 	@GetMapping("/about")
-	public void about(Model model) {
+	public void about(@RequestParam("userid") String userid, Model model) {
 		
-		model.addAttribute("about", "");
+		model.addAttribute("about", uservice.userList());
 	}
 }
 

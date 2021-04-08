@@ -11,20 +11,39 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.zerock.service.BlogService;
+import org.zerock.service.UserService;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
+@AllArgsConstructor
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private BlogService bservice;
+	private UserService uservice;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(Model model) {
+		
+		model.addAttribute("blist", bservice.getList());
+		model.addAttribute("ulist", uservice.userList());
+		
+		return "home";
+	}
+}
+
+
+	
+	
+	/*private static final Logger logger = LoggerFactory.getLogger(HomeController.class);*/
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -36,6 +55,6 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
-	}
+	}*/
 	
-}
+

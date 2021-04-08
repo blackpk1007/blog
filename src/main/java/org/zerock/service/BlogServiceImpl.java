@@ -58,6 +58,7 @@ public class BlogServiceImpl implements BlogService{
 		
 		return mapper.getList();
 	}
+	
 	@Override
 	public List<BlogVO> getListT(CriteriaTen cri) {
 		log.info("getListTen");
