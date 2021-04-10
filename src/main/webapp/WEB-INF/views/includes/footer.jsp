@@ -16,4 +16,6 @@
 <script src='/resources/js/scripts.js'></script>
 <script src='/resources/js/masonry.pkgd.min.js'></script>
 
+</script>
+
 </body>

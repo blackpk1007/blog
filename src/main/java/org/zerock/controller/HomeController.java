@@ -29,7 +29,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		
-		model.addAttribute("blist", bservice.getList());
+		model.addAttribute("blist", bservice.homeList());
 		model.addAttribute("ulist", uservice.userList());
 		
 		return "home";

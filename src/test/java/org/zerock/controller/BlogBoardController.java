@@ -27,7 +27,7 @@ public class BlogBoardController {
 	@Test
 	public void testgetList() throws Exception{
 
-		mapper.getList();
+		mapper.getList("");
 		
 		log.info(mapper);
 		

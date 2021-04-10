@@ -8,11 +8,13 @@ import org.zerock.domain.CriteriaTen;
 
 public interface BlogService {
 	
-	public List<BlogVO> getList();
+	public List<BlogVO> homeList();
 	
-	public List<BlogVO> getListT(CriteriaTen cri);
+	public List<BlogVO> getList(String boardwriter);
 	
-	public List<BlogVO> getListF(CriteriaFive cri);
+	public List<BlogVO> getListT(String boardwriter, CriteriaTen cri);
+	
+	public List<BlogVO> getListF(String boardwriter, CriteriaFive cri);
 	
 	public boolean remove(Long bno);
 	

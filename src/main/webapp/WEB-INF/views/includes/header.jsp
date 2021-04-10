@@ -13,15 +13,6 @@
 <link rel='stylesheet' href='/resources/css/easy-responsive-shortcodes.css' type='text/css' media='all'/>
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
 <style type='text/css'>
-ul.page-numbers{
-	list-style-type:none;
-}
-li.page-numbers{
-	display: inline;
-}
-div.page{
-	margin:0 auto; 
-}
 </style>
 </head>
 <body class="blog">
@@ -29,19 +20,19 @@ div.page{
 	<div class="container">
 		<header id="masthead" class="site-header">
 		<div class="site-branding">
-			<h1 class="site-title"><a href="index.html" rel="home">JRag</a></h1>
+			<h1 class="site-title"><a href="/" rel="home">JRag</a></h1>
 			<h2 class="site-description">Minimalist Portfolio HTML Template</h2>
 		</div>
 		<nav id="site-navigation" class="main-navigation">
 		<button class="menu-toggle">Menu</button>
 		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-		<div class="menu-menu-1-container">
-			<ul id="menu-menu-1" class="menu">
-				<li><a href="home">Home</a></li>
-				<li><a href="about">About</a></li>
-				<li><a href="list">Blog</a></li>
-				<li><a href="guest">Guest Book</a></li>
-			</ul>
-		</div>
+			<div class="menu-menu-1-container">
+				<ul id="menu-menu-1" class="menu">
+					<li><a href="">Home</a>
+					<li><a href="">About</a>
+					<li><a href="">Blog</a>
+					<li><a href="">Guest Book</a>
+				</ul>
+			</div>
 		</nav>
 		</header>

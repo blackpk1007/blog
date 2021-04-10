@@ -50,27 +50,35 @@ public class BlogServiceImpl implements BlogService{
 		
 		return mapper.read(bno);
 	}
-
+	
 	@Override
-	public List<BlogVO> getList(){
+	public List<BlogVO> homeList(){
 		
 		log.info("getList");
 		
-		return mapper.getList();
+		return mapper.homeList();
 	}
 	
 	@Override
-	public List<BlogVO> getListT(CriteriaTen cri) {
+	public List<BlogVO> getList(String boardwriter){
+		
+		log.info("getList");
+		
+		return mapper.getList(boardwriter);
+	}
+	
+	@Override
+	public List<BlogVO> getListT(String boardwriter, CriteriaTen cri) {
 		log.info("getListTen");
 		
-		return mapper.getListWithPagingTen(cri);
+		return mapper.getListWithPagingTen(boardwriter, cri);
 	}
 	
 	@Override
-	public List<BlogVO> getListF(CriteriaFive cri) {
+	public List<BlogVO> getListF(String boardwriter, CriteriaFive cri) {
 		log.info("getListFive");
 		
-		return mapper.getListWithPagingFive(cri);
+		return mapper.getListWithPagingFive(boardwriter, cri);
 	}
 
 

@@ -11,12 +11,10 @@
 					<article>
 					<c:forEach items="${list}" var="blog">
 					<header class="entry-header">
+					<input type="hidden" name='boardwriter' value="${blog.boardwriter}">
 					<h1 class="entry-title"><a href="blog-single.html" rel="bookmark"><c:out value="${blog.boardtitle}"/></a></h1>
 					<div class="entry-meta">
 						<span class="posted-on"><time class="entry-date published"><fmt:formatDate pattern="yyyy-MM-dd" value="${blog.boardsysdate}"/></time></span>
-					</div>
-					<div class="entry-thumbnail">						
-						<img src="http://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/10/2015/09/30160348/sep4.jpg" alt="">
 					</div>
 					</header>
 					<div class="entry-summary">

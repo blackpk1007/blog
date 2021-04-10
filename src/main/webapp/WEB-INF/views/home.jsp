@@ -23,7 +23,7 @@
 	<div class="container">
 		<header id="masthead" class="site-header">
 		<div class="site-branding">
-			<h1 class="site-title"><a href="home" rel="home">JRag</a></h1>
+			<h1 class="site-title"><a href="/" rel="home">JRag</a></h1>
 			<h2 class="site-description">Minimalist Portfolio HTML Template</h2>
 		</div>
 		<nav id="site-navigation" class="main-navigation">
@@ -34,7 +34,7 @@
 		<c:forEach items="${ulist}" var="user">
 			<c:forEach items="${blist}" var="blog">
 			<div>
-				<p><c:out value="${user.userid}"/></p>
+				<p class="p-userid"><c:out value="${user.userid}"/></p>
 				<table>
 					<tr>
 					<td><c:out value="${blog.boardtitle }"/></td>
@@ -43,10 +43,16 @@
 						<fmt:formatDate pattern="yyyy-MM-dd" value="${blog.boardsysdate}"/></time></span></td>
 					</tr>
 				</table>
+				
+`			<form id='actionForm' action="/<c:out value="${user.userid}"/>" method="get">
+				<input type="hidden" name='boardwriter' value="${user.userid}">
+			</form>
 			</div>
 			</c:forEach>
 		</c:forEach>
 		</div>
+		
+
 	<!-- .container -->
 	<footer id="colophon" class="site-footer">
 	<div class="container">
@@ -65,3 +71,21 @@
 <script src='/resources/js/masonry.pkgd.min.js'></script>
 
 </body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var actionForm = $("#actionForm")
+	
+	$(".p-userid").on("click", function(e){
+		
+		e.preventDefault();
+		
+		console.log('click');
+		actionForm.submit();
+	});
+	
+});
+</script>
+
+</html>
