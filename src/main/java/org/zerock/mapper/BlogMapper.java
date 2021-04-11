@@ -23,12 +23,8 @@ public interface BlogMapper {
 	
 	public int delete(Long bno);
 	
-	public List<BlogVO> getListWithPagingTen(String writer, CriteriaTen cri);
+	public List<BlogVO> getListWithPagingTen(@Param("boardwriter") String boardwriter, @Param("cri") CriteriaTen cri);
 	
-	public List<BlogVO> getListWithPagingFive(String writer, CriteriaFive cri);
-	
-	//public List<BlogVO> getListWithPagingTen(@Param("boardwriter") String boardwriter, CriteriaTen cri);
-	
-	//public List<BlogVO> getListWithPagingFive(@Param("boardwriter") String boardwriter, CriteriaFive cri);
+	public List<BlogVO> getListWithPagingFive(@Param("boardwriter") String boardwriter, @Param("cri") CriteriaFive cri);
 
 }

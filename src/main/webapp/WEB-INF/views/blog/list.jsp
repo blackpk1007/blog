@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
+<style>
+ul.page-numbers{
+	list-style-type:none;
+	
+}
+li.page-numbers{
+	display:inline-block;
+}
+</style>
 <%@ include file="../includes/header.jsp" %>
 		<!-- #masthead -->
      <div class="panel-heading">Board List Page

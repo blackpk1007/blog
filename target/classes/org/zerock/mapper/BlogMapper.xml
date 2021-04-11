@@ -15,21 +15,21 @@
 		]]>
 	</select>
 	 
-	<select id="getListWithPagingTen" resultType="org.zerock.domain.BlogVO">
+	<select id="getListWithPagingTen"  parameterType="map" resultType="org.zerock.domain.BlogVO">
 		<![CDATA[
 			select boardbno, boardwriter, boardtitle, boardsysdate 
 			from (select /*+INDEX_DESC(blog_board pk_board)*/ rownum rn, boardbno, boardwriter, boardtitle, boardsysdate 
-			from blog_board where boardwriter = #{boardwriter} and rownum <= #{pageNum} * #{amount})
-			where rn > (#{pageNum} -1) * #{amount}
+			from blog_board where boardwriter = #{boardwriter} and rownum <= #{cri.pageNum} * #{cri.amount})
+			where rn > (#{cri.pageNum} -1) * #{cri.amount}
 		]]>
 	</select>
 	
-	<select id="getListWithPagingFive" resultType="org.zerock.domain.BlogVO">
+	<select id="getListWithPagingFive" parameterType="map" resultType="org.zerock.domain.BlogVO" >
 		<![CDATA[
 			select boardbno, boardtitle, boardsysdate 
 			from (select /*+INDEX_DESC(blog_board pk_board)*/ rownum rn, boardbno, boardtitle, boardsysdate 
-			from blog_board where where boardwriter = #{boardwriter} and rownum <= #{pageNum} * #{amount})
-			where rn > (#{pageNum} -1) * #{amount}
+			from blog_board where where boardwriter = #{boardwriter} and rownum <= #{cri.pageNum} * #{cri.amount})
+			where rn > (#{cri.pageNum} -1) * #{cri.amount}
 		]]>
 	</select>
 		
