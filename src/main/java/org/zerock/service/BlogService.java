@@ -16,7 +16,7 @@ public interface BlogService {
 	
 	public List<BlogVO> getListF(String boardwriter, CriteriaFive cri);
 	
-	public boolean remove(Long bno);
+	public boolean remove(Long bno); 
 	
 	public boolean modify(BlogVO blog);
 	

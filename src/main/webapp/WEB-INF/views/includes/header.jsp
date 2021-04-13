@@ -28,10 +28,10 @@
 		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 			<div class="menu-menu-1-container">
 				<ul id="menu-menu-1" class="menu">
-					<li><a href="">Home</a>
-					<li><a href="">About</a>
-					<li><a href="">Blog</a>
-					<li><a href="">Guest Book</a>
+					<li><a href="/home">Home</a>
+					<li><a href="/blog/about">About</a>
+					<li><a href="/blog/list">Blog</a>
+					<li><a href="/blog/about">Guest Book</a>
 				</ul>
 			</div>
 		</nav>

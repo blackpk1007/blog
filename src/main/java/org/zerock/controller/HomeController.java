@@ -24,13 +24,12 @@ import lombok.extern.log4j.Log4j;
 public class HomeController {
 	
 	private BlogService bservice;
-	private UserService uservice;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		
 		model.addAttribute("blist", bservice.homeList());
-		model.addAttribute("ulist", uservice.userList());
+		//model.addAttribute("ulist", uservice.userList());
 		
 		return "home";
 	}

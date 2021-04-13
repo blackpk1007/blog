@@ -37,15 +37,15 @@ public class BlogController {
 	private UserService uservice;
 	
 	@GetMapping("/{boardwriter}")
-	public String home(@PathVariable("boardwriter") String boardwriter, Model model) {
+	public String home(@PathVariable String boardwriter, Model model) {
 		
 		log.info("home");
 		
 		model.addAttribute("list", bservice.getList(boardwriter));
 		
-		return "blog/home";
+		return "/blog/home";
 	}
-	
+
 //	@GetMapping("/{boardwriter}.json")
 //	public ResponseEntity<List<BlogVO>> jsonhome(@PathVariable("boardwriter") String boardwriter, Model model) {
 		

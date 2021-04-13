@@ -11,7 +11,11 @@
 	
 	<select id="homeList" resultType="org.zerock.domain.BlogVO">
 		<![CDATA[
-			select * from blog_board where boardbno > 0 order by boardbno desc
+			Select boardwriter, boardbno, boardtitle, boardsysdate 
+			From (
+			Select boardwriter, boardbno, boardtitle, boardsysdate,
+          	row_number() over (partition by boardwriter order by boardbno desc) no
+			From blog_board ) Where no=1
 		]]>
 	</select>
 	 

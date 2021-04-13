@@ -31,25 +31,22 @@
 		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 		</nav>
 		</header>
-		<c:forEach items="${ulist}" var="user">
 			<c:forEach items="${blist}" var="blog">
 			<div>
-				<p class="p-userid"><c:out value="${user.userid}"/></p>
+				<div class="userid">
+					<p class="p-userid"><a href="<c:out value="${blog.boardwriter}"/>"><c:out value="${blog.boardwriter}"/></a></p>
+				</div>
+				
 				<table>
 					<tr>
-					<td><c:out value="${blog.boardtitle }"/></td>
+					<td><c:out value="${blog.boardtitle}"/></td>
 					<td><c:out value="${blog.boardcontent }"/></td>
 					<td><span class="posted-on"><time class="entry-date published">
 						<fmt:formatDate pattern="yyyy-MM-dd" value="${blog.boardsysdate}"/></time></span></td>
 					</tr>
 				</table>
-				
-`			<form id='actionForm' action="/<c:out value="${user.userid}"/>" method="get">
-				<input type="hidden" name='boardwriter' value="${user.userid}">
-			</form>
 			</div>
 			</c:forEach>
-		</c:forEach>
 		</div>
 		
 
@@ -66,26 +63,28 @@
 </div>
 <!-- #page -->
 <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
-<script src='/resources/js/plugins.js'></script>
+<script src='/resources/js/plugins.js'></script>-
 <script src='/resources/js/scripts.js'></script>
 <script src='/resources/js/masonry.pkgd.min.js'></script>
 
 </body>
 
 <script type="text/javascript">
-$(document).ready(function(){
-
-	var actionForm = $("#actionForm")
+//$(document).ready(function(){
 	
-	$(".p-userid").on("click", function(e){
-		
-		e.preventDefault();
-		
-		console.log('click');
-		actionForm.submit();
-	});
+//	var boardwriter = $(".boardwriter");
 	
-});
+	
+//	$(".userid").on("click", function(e){
+		
+		//boardwriter.find("input[value='<c:out value="${user.userid}"/>']");
+		
+		//e.preventDefault();
+		//console.log('click');
+		//location.href=boardwriter;
+	//});
+	
+//});
 </script>
 
 </html>
