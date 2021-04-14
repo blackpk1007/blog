@@ -6,10 +6,12 @@
 		<div id="comments" class="comments-area">
 					<div id="respond" class="comment-respond">
 						<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/demo-moschino/embed-audio/#respond" style="display:none;">Cancel reply</a></small></h3>
-						<form action="/blog/register" method="post" id="commentform" class="comment-form" novalidate="">
+						<c:forEach items="${user}" var="user">
+						<form action="/<c:out value="${user.userid}"/>/register" method="post" id="commentform" class="comment-form" novalidate="">
 							<p class="comment-form-author">
 								<label for="author">Writer <span class="required">*</span></label>
-								<input id="author" name="boardwriter" type="text" value="" size="30" aria-required="true" required="required">
+								<input id="author" name="boardwriter" value='<c:out value="${user.userid}"/>' 
+								type="text" value="" size="30" aria-required="true" required="required" readonly="readonly">
 							</p>
 							<p class="comment-form-author">
 								<label for="title">Title <span class="required">*</span></label>
@@ -24,6 +26,7 @@
 								<input name="reset" type="reset" id="reset" class="reset" value="reset">
 							</p>
 						</form>
+						</c:forEach>
 					</div>
 					<!-- #respond -->
 				</div>

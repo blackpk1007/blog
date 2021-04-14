@@ -55,10 +55,10 @@ li.page-numbers{
 			<!-- #primary -->
 		</div>
 		<!-- #content -->
-		<form id='actionForm' action="/blog/list" method="get">
+		<!--  <form id='actionForm' action="/blog/list" method="get">
 			<input type="hidden" name='pageNum' value="${pageMaker.cri.pageNum }">
 			<input type="hidden" name='amount' value="${pageMaker.cri.amount }">
-		</form>
+		</form> -->
 <%@ include file="../includes/footer.jsp" %>
 
 <script type="text/javascript">
@@ -69,17 +69,17 @@ $(document).ready(function(){
 		self.location = "/blog/register";
 	});
 	
-	var actionForm = $("#actionForm")
+//	var actionForm = $("#actionForm")
 	
-	$(".page-numbers a").on("click", function(e){
+//$	(".page-numbers a").on("click", function(e){
 		
-		e.preventDefault();
+//		e.preventDefault();
 		
-		console.log('click');
+//		console.log('click');
 		
-		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
-		actionForm.submit();
-	});
+//		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+//		actionForm.submit();
+//	});
 	
 });
 </script>

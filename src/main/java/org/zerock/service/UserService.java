@@ -9,4 +9,5 @@ public interface UserService {
 	
 	public List<UserVO> userList();
 	
+	public List<UserVO> user(String userid);
 }

@@ -5,6 +5,10 @@
 
 	<select id="userList" resultType="org.zerock.domain.UserVO">
 		select userid from blog_user 
-	</select>	
+	</select>
+	
+	<select id="user" resultType="org.zerock.domain.UserVO">
+		select userid from blog_user where userid = #{userid} 
+	</select>		
 
 </mapper>

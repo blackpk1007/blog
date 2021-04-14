@@ -83,22 +83,26 @@ public class BlogController {
 
 //	}
 	
-	@GetMapping("/register")
-	public void register() {
+	@GetMapping("/{boardwriter}/register")
+	public String register(@PathVariable("boardwriter") String boardwriter, Model model) {
 		
+		model.addAttribute("user", uservice.user(boardwriter));
+				
+		return "/blog/register";
 	}
 	
-	@PostMapping("/register")
-	public String register(BlogVO blog, RedirectAttributes rttr) {
+	@PostMapping("/{boardwriter}/register")
+	public String register(@PathVariable("boardwriter") String boardwriter, BlogVO blog, RedirectAttributes rttr, Model model) {
 		
 		log.info("register : " + blog);
 		
 		bservice.register(blog);
 		
+		model.addAttribute("user", uservice.user(boardwriter));
 		rttr.addFlashAttribute("result", blog.getBoardbno());
 		
-		return "redirect:/blog/list";
-	}
+		return "redirect:/"+boardwriter+"/list/1";
+	} 
 	
 	@GetMapping({"/get", "/modify"})
 	public void get(CriteriaFive cri, @RequestParam("boardbno") Long bno,
@@ -120,7 +124,7 @@ public class BlogController {
 		if(bservice.modify(blog)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/blog/list";
+		return "redirect:/{boardwriter}/list";
 	}
 	
 	@PostMapping("/remove")
@@ -131,7 +135,7 @@ public class BlogController {
 		if(bservice.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/blog/list";
+		return "redirect:/{boardwriter}/list";
 	}
 	
 	@GetMapping("/about")
