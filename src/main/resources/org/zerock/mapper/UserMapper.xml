@@ -4,11 +4,11 @@
 <mapper namespace="org.zerock.mapper.UserMapper">
 
 	<select id="userList" resultType="org.zerock.domain.UserVO">
-		select userid from blog_user 
+		select * userid from blog_user 
 	</select>
 	
 	<select id="user" resultType="org.zerock.domain.UserVO">
-		select userid from blog_user where userid = #{userid} 
+		select * from blog_user where userid = #{userid} 
 	</select>		
 
 </mapper>

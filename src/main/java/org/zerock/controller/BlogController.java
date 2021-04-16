@@ -35,7 +35,7 @@ public class BlogController {
 	
 	private BlogService bservice;
 	private UserService uservice;
-	
+
 	@GetMapping("/{boardwriter}")
 	public String home(@PathVariable String boardwriter, Model model) {
 		
@@ -104,15 +104,30 @@ public class BlogController {
 		return "redirect:/"+boardwriter+"/list/1";
 	} 
 	
-	@GetMapping({"/get", "/modify"})
-	public void get(CriteriaFive cri, @RequestParam("boardbno") Long bno,
-									  @RequestParam("writer") String writer, Model model) {
-		
+	@GetMapping("/{boardwriter}/get/{page}/{boardbno}")
+	public String get(@PathVariable("boardwriter") String boardwriter,
+					@PathVariable("page") int page,
+					@PathVariable("boardbno") Long boardbno, Model model) {
+		CriteriaFive cri = new CriteriaFive(page, 5);
+					
 		log.info("get or modify");
 		
-		model.addAttribute("list", bservice.getListF(writer, cri));
-		model.addAttribute("blog", bservice.get(bno));
+		model.addAttribute("list", bservice.getListF(boardwriter, cri));
+		model.addAttribute("blog", bservice.get(boardbno));
 		model.addAttribute("pageMaker", new PageDTOF(cri, 123));
+		
+		return "/blog/get";
+		
+	}
+	
+	@GetMapping("/{boardwriter}/modify/{page}/{boardbno}")
+	public String modfiy(@PathVariable("boardwriter") String boardwriter,
+					     @PathVariable("boardbno") Long boardbno, Model model) {
+		log.info("get or modify");
+		
+		model.addAttribute("blog", bservice.get(boardbno));
+		
+		return "/blog/modify";
 		
 	}
 	
@@ -138,10 +153,13 @@ public class BlogController {
 		return "redirect:/{boardwriter}/list";
 	}
 	
-	@GetMapping("/about")
-	public void about(@RequestParam("userid") String userid, Model model) {
+	@GetMapping("/{boardwriter}/about")
+	public String about(@PathVariable("boardwriter") String boardwriter, Model model) {
 		
-		model.addAttribute("about", uservice.userList());
+		log.info("about : " + boardwriter);
+		model.addAttribute("about", uservice.user(boardwriter));
+		
+		return "blog/about";
 	}
 }
 

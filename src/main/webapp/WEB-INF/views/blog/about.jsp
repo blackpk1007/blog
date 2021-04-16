@@ -18,6 +18,9 @@
 				<div class="entry-content">
 				<p><c:out value="${blog.userid}"/></p>
 				<p><c:out value="${blog.userinformation}"/></p>
+				<p><c:out value="${blog.userhobby}"/></p>
+				<p>가입일 : <span class="posted-on"><time class="entry-date published">
+						<fmt:formatDate pattern="yyyy-MM-dd" value="${blog.usersysdate}"/></time></span></p>
 				<h2 style="font-family: 'Herr Von Muellerhoff';color:#ccc;font-weight:300;">Yours, Von Muellerhoff</h2>
 				</div><!-- .entry-content -->
 				</c:forEach>
