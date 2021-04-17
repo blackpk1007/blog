@@ -5,6 +5,9 @@
 <%@ include file="../includes/header.jsp" %>
 <!-- #masthead -->
 		<div id="content" class="site-content">
+		<div class="panel-heading">
+            	<button id='regBtn' type="button" class="btn btn-xs pull-right">modify</button>
+     	</div>   <!-- /.panel-heading -->
 			<div id="primary" class="content-area column full">
 				<main id="main" class="site-main">
 				

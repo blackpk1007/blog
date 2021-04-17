@@ -104,7 +104,7 @@ public class BlogController {
 		return "redirect:/"+boardwriter+"/list/1";
 	} 
 	
-	@GetMapping("/{boardwriter}/get/{page}/{boardbno}")
+	@GetMapping("/{boardwriter}/get/{boardbno}/{page}")
 	public String get(@PathVariable("boardwriter") String boardwriter,
 					@PathVariable("page") int page,
 					@PathVariable("boardbno") Long boardbno, Model model) {
@@ -120,7 +120,7 @@ public class BlogController {
 		
 	}
 	
-	@GetMapping("/{boardwriter}/modify/{page}/{boardbno}")
+	@GetMapping("/{boardwriter}/modify/{boardbno}/{page}")
 	public String modfiy(@PathVariable("boardwriter") String boardwriter,
 					     @PathVariable("boardbno") Long boardbno, Model model) {
 		log.info("get or modify");
@@ -160,6 +160,24 @@ public class BlogController {
 		model.addAttribute("about", uservice.user(boardwriter));
 		
 		return "blog/about";
+	}
+	
+	@GetMapping("/{boardwriter}/about/modify")
+	public String aboutmodify(@PathVariable("boardwriter") String boardwriter, Model model) {
+		
+		log.info("about : " + boardwriter);
+		model.addAttribute("about", uservice.user(boardwriter));
+		
+		return "blog/aboutmodify";
+	}
+	
+	@PostMapping("/{boardwriter}/about/modify")
+	public String aboutmodify(Model model) {
+		
+		//log.info("about : " + boardwriter);
+		//model.addAttribute("about", uservice.user(boardwriter));
+		
+		return "blog/aboutmodify";
 	}
 }
 

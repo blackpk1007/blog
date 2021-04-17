@@ -11,10 +11,14 @@
 					<article>
 					<c:forEach items="${list}" var="blog">
 					<header class="entry-header">
-					<input type="hidden" name='boardwriter' value="${blog.boardwriter}">
-					<h1 class="entry-title"><a href="blog-single.html" rel="bookmark"><c:out value="${blog.boardtitle}"/></a></h1>
+					<input type="hidden" name='boardwriter' value='<c:out value="${blog.boardwriter}"/>'>
+					<input type="hidden" name='boardbno' value='<c:out value="${blog.boardbno}"/>'>
+					<h1 class="entry-title">
+					<a href="/<c:out value="${blog.boardwriter}"/>/get/1/<c:out value="${blog.boardbno}"/>" rel="bookmark">
+					<c:out value="${blog.boardtitle}"/></a></h1>
 					<div class="entry-meta">
-						<span class="posted-on"><time class="entry-date published"><fmt:formatDate pattern="yyyy-MM-dd" value="${blog.boardsysdate}"/></time></span>
+						<span class="posted-on"><time class="entry-date published">
+						<fmt:formatDate pattern="yyyy-MM-dd" value="${blog.boardsysdate}"/></time></span>
 					</div>
 					</header>
 					<div class="entry-summary">
