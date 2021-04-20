@@ -9,5 +9,7 @@ public interface UserService {
 	
 	public List<UserVO> userList();
 	
-	public List<UserVO> user(String userid);
+	public List<UserVO> read(String userid);
+	
+	public void update(UserVO user);
 }

@@ -27,10 +27,16 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<UserVO> user(String userid) {
+	public List<UserVO> read(String userid) {
 		log.info("user : " +userid);
 		
-		return mapper.user(userid);
+		return mapper.read(userid);
+	}
+
+	@Override
+	public void update(UserVO user) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

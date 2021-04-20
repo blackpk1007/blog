@@ -14,7 +14,7 @@
 					<input type="hidden" name='boardwriter' value='<c:out value="${blog.boardwriter}"/>'>
 					<input type="hidden" name='boardbno' value='<c:out value="${blog.boardbno}"/>'>
 					<h1 class="entry-title">
-					<a href="/<c:out value="${blog.boardwriter}"/>/get/1/<c:out value="${blog.boardbno}"/>" rel="bookmark">
+					<a href="/<c:out value="${blog.boardwriter}"/>/get/<c:out value="${blog.boardbno}"/>/1" rel="bookmark">
 					<c:out value="${blog.boardtitle}"/></a></h1>
 					<div class="entry-meta">
 						<span class="posted-on"><time class="entry-date published">
@@ -36,15 +36,14 @@
 			<!-- #primary -->
 			<div id="secondary" class="column third">
 				<div id="sidebar-1" class="widget-area" role="complementary">
-				
+					<c:forEach items="${user}" var="user">
 					<aside id="text-5" class="widget widget_text">
-					<h4 class="widget-title">About Me</h4>
+					<h4 class="widget-title"><c:out value="${user.userid}"/>의 블로그입니다.</h4>
 					<div class="textwidget">
-						<p>
-							<img src="http://www.themepush.com/demo-hypnosa/wp-content/uploads/sites/9/2015/09/avatar5.png" class="alignleft" style="width:80px;border-radius:50%;margin-bottom:0;"> I'm a professional photographer for 10 years. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-						</p>
+						<p><c:out value="${user.userinformation}"/></p>
 					</div>
 					</aside>
+					</c:forEach>
 				</div>
 				<!-- .widget-area -->
 			</div>

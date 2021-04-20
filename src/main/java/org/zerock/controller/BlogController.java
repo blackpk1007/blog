@@ -42,6 +42,7 @@ public class BlogController {
 		log.info("home");
 		
 		model.addAttribute("list", bservice.getList(boardwriter));
+		model.addAttribute("user", uservice.read(boardwriter));
 		
 		return "/blog/home";
 	}
@@ -86,7 +87,7 @@ public class BlogController {
 	@GetMapping("/{boardwriter}/register")
 	public String register(@PathVariable("boardwriter") String boardwriter, Model model) {
 		
-		model.addAttribute("user", uservice.user(boardwriter));
+		model.addAttribute("user", uservice.read(boardwriter));
 				
 		return "/blog/register";
 	}
@@ -98,7 +99,7 @@ public class BlogController {
 		
 		bservice.register(blog);
 		
-		model.addAttribute("user", uservice.user(boardwriter));
+		model.addAttribute("user", uservice.read(boardwriter));
 		rttr.addFlashAttribute("result", blog.getBoardbno());
 		
 		return "redirect:/"+boardwriter+"/list/1";
@@ -157,7 +158,7 @@ public class BlogController {
 	public String about(@PathVariable("boardwriter") String boardwriter, Model model) {
 		
 		log.info("about : " + boardwriter);
-		model.addAttribute("about", uservice.user(boardwriter));
+		model.addAttribute("about", uservice.read(boardwriter));
 		
 		return "blog/about";
 	}
@@ -166,18 +167,18 @@ public class BlogController {
 	public String aboutmodify(@PathVariable("boardwriter") String boardwriter, Model model) {
 		
 		log.info("about : " + boardwriter);
-		model.addAttribute("about", uservice.user(boardwriter));
+		model.addAttribute("about", uservice.read(boardwriter));
 		
 		return "blog/aboutmodify";
 	}
 	
 	@PostMapping("/{boardwriter}/about/modify")
-	public String aboutmodify(Model model) {
+	public String aboutmodify(@PathVariable("boardwriter") String boardwriter, UserVO user, Model model) {
 		
 		//log.info("about : " + boardwriter);
 		//model.addAttribute("about", uservice.user(boardwriter));
 		
-		return "blog/aboutmodify";
+		return "redirect:/{boardwriter}/about";
 	}
 }
 
