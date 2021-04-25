@@ -3,30 +3,55 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ include file="../includes/header.jsp" %>
-			<div id="secondary" class="column third">
-				<div id="sidebar-1" class="widget-area" role="complementary">
-					<div class="grid bloggrid">
-						<article>
-						<c:forEach items="${guest}" var="guest">
-						<header class="entry-header">
-							<input type='hidden' name="guest" value='<c:out value="${blog.boardbno }"/>'>
-							<input type="hidden" name='boardwriter' value='<c:out value="${blog.boardwriter}"/>'>
-							<h1 class="entry-title"><a href='/blog/get?boardbno=<c:out value="${blog.boardbno}"/>'
-							rel="bookmark"><c:out value="${blog.boardtitle}"/></a></h1>
+	<div class="panel-heading">
+	   	<button id='regiBtn' type="button" class="btn btn-xs pull-right">Register</button>
+    </div>   <!-- /.panel-heading -->
+		<div id="content" class="site-content">
+			<div id="primary" class="content-area column two-thirds">
+				<main id="main" class="site-main" role="main">
+				<div class="grid bloggrid">
+					<article>
+					<c:forEach items="${guest}" var="guest">
+					<header class="entry-header">
+						<h1 class="entry-title"><c:out value="${guest.guestwriter}"/></h1>
 							<div class="entry-meta">
 								<span class="posted-on"><time class="entry-date published">
-								<fmt:formatDate pattern="yyyy-MM-dd" value="${blog.boardsysdate}"/></time></span>
+								<fmt:formatDate pattern="yyyy-MM-dd" value="${guest.guestsysdate}"/></time></span>
 							</div>
-						</header>
-						</c:forEach>
-						</article>
+					</header>
+					<div class="entry-summary">
+						<p><c:out value="${guest.guestcontent}"/></p>
 					</div>
+					</c:forEach>
+					</article>
 				</div>
-				<!-- .widget-area -->
+			<div class="page">
+				<ul class="page-numbers">
+					<c:if test="${pageMaker.prev }">
+						<li class="page-numbers prev"><a href="${pageMaker.startPage - 2}">Previous</a></li>
+					</c:if>
+					
+					<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+						<li class="page-numbers" ${pageMaker.cri.pageNum == num ? "active":""}><a href="${num }">${num }</a></li>
+					</c:forEach>
+					
+					<c:if test="${pageMaker.next }">
+						<li class="page-numbers next"><a href="${pageMaker.endPage + 1 }">Next</a></li>
+					</c:if>
+				</ul>
 			</div>
-			<!-- #secondary -->
-
+				</main>
+				<!-- #main -->
+			</div>
+			<!-- #primary -->
+		</div>
 <%@ include file="../includes/footer.jsp" %>
 
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	
+})
 
+</script>
 </html>

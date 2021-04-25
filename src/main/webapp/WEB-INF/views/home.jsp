@@ -26,23 +26,23 @@
 			<h1 class="site-title"><a href="/" rel="home">JRag</a></h1>
 			<h2 class="site-description">Minimalist Portfolio HTML Template</h2>
 		</div>
-		<nav id="site-navigation" class="main-navigation">
-		<button class="menu-toggle">Menu</button>
-		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-		</nav>
 		</header>
 			<c:forEach items="${blist}" var="blog">
 			<div>
 				<div class="userid">
 					<p class="p-userid"><a href="<c:out value="${blog.boardwriter}"/>"><c:out value="${blog.boardwriter}"/></a></p>
 				</div>
-				
-				<table>
+				<table >
 					<tr>
-					<td><c:out value="${blog.boardtitle}"/></td>
-					<td><c:out value="${blog.boardcontent }"/></td>
-					<td><span class="posted-on"><time class="entry-date published">
-						<fmt:formatDate pattern="yyyy-MM-dd" value="${blog.boardsysdate}"/></time></span></td>
+						<td width="664" height="49" style="border-bottom:none;">
+						<a href='/<c:out value="${blog.boardwriter}"/>/get/<c:out value="${blog.boardbno}"/>/1' rel="bookmark">
+						<c:out value="${blog.boardtitle}"/></a></td>
+						<td><span class="posted-on"><time class="entry-date published">
+							<fmt:formatDate pattern="yyyy-MM-dd" value="${blog.boardsysdate}"/></time></span>
+						</td>
+					</tr>
+					<tr>
+						<td class="line"><c:out value="${blog.boardcontent}"/></td>
 					</tr>
 				</table>
 			</div>

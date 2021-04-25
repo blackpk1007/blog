@@ -48,11 +48,11 @@ $(document).ready(function(){
 		console.log(operation);
 		
 		if(operation === 'remove'){
-			commentform.attr("action", "/blog/remove");
+			commentform.attr("action", "/remove");
 		}
 		
 		else if(operation === 'list'){
-			commentform.attr("action", "/blog/list").attr("method", "get");
+			commentform.attr("action", "/list").attr("method", "get");
 			commenform.empty();
 		}
 		

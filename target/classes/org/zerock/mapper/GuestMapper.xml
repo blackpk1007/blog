@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.GuestMapper">
+
+	<select id="getList" resultType="org.zerock.domain.GuestVO">
+		select * from blog_guest where guestid = #{guestid} order by guestbno desc
+	</select>
+	
+	<select id="getListWithPagingTen"  parameterType="map" resultType="org.zerock.domain.GuestVO">
+		<![CDATA[
+			select guestbno, guestwriter, guestcontent, guestsysdate 
+			from (select /*+INDEX_DESC(blog_guest pk_guest)*/ rownum rn, guestbno, guestwriter, guestcontent, guestsysdate 
+			from blog_guest where guestid = #{guestid} and rownum <= #{cri.pageNum} * #{cri.amount})
+			where rn > (#{cri.pageNum} -1) * #{cri.amount}
+		]]>
+	</select>
+	
+</mapper>

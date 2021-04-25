@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ include file="../includes/header.jsp" %>
+
 		<!-- #masthead -->
      <div class="panel-heading">Board List Page
             	<button id='regBtn' type="button" class="btn btn-xs pull-right">Register New Blog</button>
@@ -16,7 +17,7 @@
 					<header class="entry-header">
 					<input type='hidden' name="boardbno" value='<c:out value="${blog.boardbno }"/>'>
 					<input type="hidden" name='boardwriter' value='<c:out value="${blog.boardwriter}"/>'>
-					<h1 class="entry-title"><a href='/blog/get?boardbno=<c:out value="${blog.boardbno}"/>'
+					<h1 class="entry-title"><a href='/<c:out value="${blog.boardwriter}"/>/get/<c:out value="${blog.boardbno}"/>/1'
 					rel="bookmark"><c:out value="${blog.boardtitle}"/></a></h1>
 					<div class="entry-meta">
 						<span class="posted-on"><time class="entry-date published">
@@ -29,7 +30,7 @@
 			<div class="page">
 				<ul class="page-numbers">
 					<c:if test="${pageMaker.prev }">
-						<li class="page-numbers prev"><a href="${pageMaker.startPage - 1}">Previous</a></li>
+						<li class="page-numbers prev"><a href="${pageMaker.startPage - 2}">Previous</a></li>
 					</c:if>
 					
 					<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">

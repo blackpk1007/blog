@@ -6,9 +6,6 @@
 		<div id="comments" class="comments-area">
 					<div id="respond" class="comment-respond">
 						<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/demo-moschino/embed-audio/#respond" style="display:none;">Cancel reply</a></small></h3>
-						<form action="/blog/modify" method="get" id="commentform" class="comment-form" novalidate="">
-						<input type="hidden" name="boardbno" value='<c:out value="${blog.boardbno }"/>'>
-						</form>
 							<p class="comment-form-author">
 								<label for="author">Writer</label>
 								<input id="author" name="boardwriter" type="text" value='<c:out value="${blog.boardwriter }"/>'  
@@ -25,8 +22,10 @@
 								aria-required="true" required="required" readonly="readonly"><c:out value="${blog.boardcontent }"/></textarea>
 							</p>
 							<p class="form-submit">
-								<button data-oper="modify" class="btn btn-default">Modify</button>
-								<button data-oper="list" class="btn btn-info">List</button>
+								<button type="button" data-oper="modify" class="btn btn-default" 
+								onclick="location.href='/<c:out value="${blog.boardwriter }"/>/modify/<c:out value="${blog.boardbno }"/>">Modify</button>
+								<button type="button" data-oper="list" class="btn btn-info"
+								onclick="location.href='/<c:out value="${blog.boardwriter }"/>/list/1">List</button>
 							</p>
 					</div>
 					<!-- #respond -->
@@ -38,10 +37,10 @@
 				<main id="main" class="site-main" role="main">
 				<div class="grid bloggrid">
 					<article>
-					<c:forEach items="${list}" var="blog">
+					<c:forEach items="${list}" var="bl og">
 					<header class="entry-header">
 					<input type='hidden' name="boardbno" value='<c:out value="${blog.boardbno }"/>'>
-					<h1 class="entry-title"><a href='/blog/get?boardbno=<c:out value="${blog.boardbno}"/>'
+					<h1 class="entry-title"><a href='/<c:out value="${blog.boardwriter}"/>/get/<c:out value="${blog.boardbno}"/>/1'
 					rel="bookmark"><c:out value="${blog.boardtitle}"/></a></h1>
 					<div class="entry-meta">
 						<span class="posted-on"><time class="entry-date published">
@@ -80,29 +79,25 @@ $(document).ready(function(){
 	
 	var commentform = $("#commentform");
 	
+	var boardwriter = $('<c:out value="${blog.boardwriter }"/>');
+	var boardbno = $('<c:out value="${blog.boardbno }"/>');
+	
 	$("button[data-oper='modify']").on("click", function(e){
 		
-		commentform.attr("action", "/blog/modify").submit();
+		commentform.method = "get";
+		commentform.action = "/"+boardwriter+"/modify/"+boardbno;
+		console.log("modify button");
+		commentform.submit();
 	});
 	
-	$("button[data-oper='list']").on("click", function(e){
+	$("button[data-oper='list']").on("click", function(e){ 
 		
-		commentform.find("#boardbno").remove();
-		commentform.attr("action", "/blog/list").submit();
+		commentform.method = "get";
+		commentform.action = "/"+boardwriter+"/list/1";
+		console.log("list button");
+		commentform.submit();
 		
-	});
-	
-	var actionForm = $("#actionForm")
-	
-	$(".page-numbers a").on("click", function(e){
-		
-		e.preventDefault();
-		
-		console.log('click');
-		
-		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
-		actionForm.submit();
-	});
+//	});
 	
 });
 

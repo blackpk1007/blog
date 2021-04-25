@@ -21,6 +21,7 @@ import org.zerock.domain.PageDTOF;
 import org.zerock.domain.PageDTOT;
 import org.zerock.domain.UserVO;
 import org.zerock.service.BlogService;
+import org.zerock.service.GuestService;
 import org.zerock.service.UserService;
 
 import lombok.AllArgsConstructor;
@@ -35,6 +36,7 @@ public class BlogController {
 	
 	private BlogService bservice;
 	private UserService uservice;
+	private GuestService gservice;
 
 	@GetMapping("/{boardwriter}")
 	public String home(@PathVariable String boardwriter, Model model) {
@@ -45,6 +47,13 @@ public class BlogController {
 		model.addAttribute("user", uservice.read(boardwriter));
 		
 		return "/blog/home";
+	}
+	
+	@PostMapping("/home")
+	public String home(String boardwriter) {
+		
+		return "redirect:/";
+		
 	}
 
 //	@GetMapping("/{boardwriter}.json")
@@ -121,7 +130,7 @@ public class BlogController {
 		
 	}
 	
-	@GetMapping("/{boardwriter}/modify/{boardbno}/{page}")
+	@GetMapping("/{boardwriter}/modify/{boardbno}")
 	public String modfiy(@PathVariable("boardwriter") String boardwriter,
 					     @PathVariable("boardbno") Long boardbno, Model model) {
 		log.info("get or modify");
@@ -179,6 +188,20 @@ public class BlogController {
 		//model.addAttribute("about", uservice.user(boardwriter));
 		
 		return "redirect:/{boardwriter}/about";
+	}
+	
+	@GetMapping("/{boardwriter}/guest/{page}")
+	public String guest(@PathVariable("boardwriter") String boardwriter, 
+					    @PathVariable("page") int page, Model model) {
+		CriteriaTen cri = new CriteriaTen(page, 10);
+		
+		log.info("guest : " + boardwriter);
+		
+		model.addAttribute("guest", gservice.getListT(boardwriter, cri));
+		//model.addAttribute("guest", gservice.getList(boardwriter));
+		model.addAttribute("pageMaker", new PageDTOT(cri, 123));
+		
+		return "blog/guest";
 	}
 }
 

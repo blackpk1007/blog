@@ -15,7 +15,20 @@
 <script src='/resources/js/plugins.js'></script>
 <script src='/resources/js/scripts.js'></script>
 <script src='/resources/js/masonry.pkgd.min.js'></script>
+<script type="text/javascript">
 
+	var mainform = $("#mainform");
+	
+	function main(id){
+		
+		if(id == "home"){
+			mainform.method = "get";
+			mainform.action = "/blog/home";
+		}
+		else if(id == "about"){
+			
+		}
+	}
 </script>
 
 </body>

@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -20,6 +24,9 @@ ul.page-numbers{
 li.page-numbers{
 	display:inline-block;
 }
+.line{
+	board-bottom:1px;
+}
 </style>
 </head>
 <body class="blog">
@@ -34,13 +41,12 @@ li.page-numbers{
 		<button class="menu-toggle">Menu</button>
 		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 			<div class="menu-menu-1-container">
-				<ul id="menu-menu-1" class="menu">
-				
-					<li><a href="/">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Guest Book</a></li>
-				</ul>
+					<ul id="menu-menu-1" class="menu">
+						<li><a href='/blog/home' id="home">Home</a></li>
+						<li><a href="#" id="about">About</a></li>
+						<li><a href="#" id="blog">Blog</a></li>
+						<li><a href="#" id="guest">Guest Book</a></li>
+					</ul>
 			</div>
 		</nav>
 		</header>
