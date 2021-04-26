@@ -6,7 +6,7 @@
 
 		<!-- #masthead -->
      <div class="panel-heading">Board List Page
-            	<button id='regBtn' type="button" class="btn btn-xs pull-right">Register New Blog</button>
+            	<button id='regBtn' type="button" class="btn btn-xs pull-right" onclick="register_link()">Register New Blog</button>
      </div>   <!-- /.panel-heading -->
 		<div id="content" class="site-content">
 			<div id="primary" class="content-area column two-thirds">
@@ -53,14 +53,15 @@
 			<input type="hidden" name='amount' value="${pageMaker.cri.amount }">
 		</form> -->
 <%@ include file="../includes/footer.jsp" %>
-
+<script>
+function register_link(){
+	
+	location.href = "/<c:out value="${blog.boardwriter}"/>/register";
+}
+</script>
 <script type="text/javascript">
 $(document).ready(function(){
 	
-	$("#regBtn").on("click", function(){
-		
-		self.location = "/blog/register";
-	});
 	
 //	var actionForm = $("#actionForm")
 	

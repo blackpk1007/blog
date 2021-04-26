@@ -6,7 +6,6 @@
 		<div id="comments" class="comments-area">
 					<div id="respond" class="comment-respond">
 						<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/demo-moschino/embed-audio/#respond" style="display:none;">Cancel reply</a></small></h3>
-						<form action="/blog/modify" method="post" id="commentform" class="comment-form" novalidate="">
 						<input type="hidden" name="boardbno" value='<c:out value="${blog.boardbno }"/>'>
 							<p class="comment-form-author">
 								<label for="author">Writer</label>
@@ -26,38 +25,21 @@
 							<p class="form-submit">
 								<button data-oper="modify" class="btn btn-default">Modify</button>
 								<button data-oper="remove" class="btn btn-default">Remove</button>
-								<button data-oper="list" class="btn btn-info">List</button>
+								<button data-oper="list" class="btn btn-info" onclick="list_link()">List</button>
 							</p>
-							</form>
 					</div>
 					<!-- #respond -->
 				</div>
 				<!-- #comments -->
 <%@ include file="../includes/footer.jsp" %>
+<script>
+function list_link(){
+	location.href = "/<c:out value="${blog.boardwriter }"/>/list/1";
+}
+</script>
 <script type="text/javascript">
 $(document).ready(function(){
-	
-	var commentform = $("#commentform");
-	
-	$('button').on("click", function(e){
-		
-		e.preventDefault();
-		
-		var operation = $(this).data("oper");
-		
-		console.log(operation);
-		
-		if(operation === 'remove'){
-			commentform.attr("action", "/remove");
-		}
-		
-		else if(operation === 'list'){
-			commentform.attr("action", "/list").attr("method", "get");
-			commenform.empty();
-		}
-		
-		commentform.submit();
-	});
+
 });
 </script>
 </html>

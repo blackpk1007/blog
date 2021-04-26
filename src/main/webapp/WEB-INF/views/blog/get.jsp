@@ -22,10 +22,8 @@
 								aria-required="true" required="required" readonly="readonly"><c:out value="${blog.boardcontent }"/></textarea>
 							</p>
 							<p class="form-submit">
-								<button type="button" data-oper="modify" class="btn btn-default" 
-								onclick="location.href='/<c:out value="${blog.boardwriter }"/>/modify/<c:out value="${blog.boardbno }"/>">Modify</button>
-								<button type="button" data-oper="list" class="btn btn-info"
-								onclick="location.href='/<c:out value="${blog.boardwriter }"/>/list/1">List</button>
+								<button data-oper="modify" class="btn btn-default" onclick="modify_link()">Modify</button>
+								<button data-oper="list" class="btn btn-info" onclick="list_link()">List</button>
 							</p>
 					</div>
 					<!-- #respond -->
@@ -37,14 +35,14 @@
 				<main id="main" class="site-main" role="main">
 				<div class="grid bloggrid">
 					<article>
-					<c:forEach items="${list}" var="bl og">
+					<c:forEach items="${list}" var="list">
 					<header class="entry-header">
-					<input type='hidden' name="boardbno" value='<c:out value="${blog.boardbno }"/>'>
-					<h1 class="entry-title"><a href='/<c:out value="${blog.boardwriter}"/>/get/<c:out value="${blog.boardbno}"/>/1'
-					rel="bookmark"><c:out value="${blog.boardtitle}"/></a></h1>
+					<input type='hidden' name="boardbno" value='<c:out value="${list.boardbno }"/>'>
+					<h1 class="entry-title"><a href='/<c:out value="${list.boardwriter}"/>/get/<c:out value="${list.boardbno}"/>/1'
+					rel="bookmark"><c:out value="${list.boardtitle}"/></a></h1>
 					<div class="entry-meta">
 						<span class="posted-on"><time class="entry-date published">
-						<fmt:formatDate pattern="yyyy-MM-dd" value="${blog.boardsysdate}"/></time></span>
+						<fmt:formatDate pattern="yyyy-MM-dd" value="${list.boardsysdate}"/></time></span>
 					</div>
 					</header>
 					</c:forEach>
@@ -74,29 +72,38 @@
 		<!-- #content -->
 		
 <%@ include file="../includes/footer.jsp" %>
+<script>
+function modify_link(){
+	location.href = "/<c:out value="${blog.boardwriter }"/>/modify/<c:out value="${blog.boardbno }"/>";
+}
+
+function list_link(){
+	location.href = "/<c:out value="${blog.boardwriter }"/>/list/1";
+}
+</script>
 <script type="text/javascript">
 $(document).ready(function(){
 	
 	var commentform = $("#commentform");
-	
-	var boardwriter = $('<c:out value="${blog.boardwriter }"/>');
-	var boardbno = $('<c:out value="${blog.boardbno }"/>');
-	
-	$("button[data-oper='modify']").on("click", function(e){
+
+//	$('button').on("click", function(e){
 		
-		commentform.method = "get";
-		commentform.action = "/"+boardwriter+"/modify/"+boardbno;
-		console.log("modify button");
-		commentform.submit();
-	});
-	
-	$("button[data-oper='list']").on("click", function(e){ 
+//		e.preventDefault();
 		
-		commentform.method = "get";
-		commentform.action = "/"+boardwriter+"/list/1";
-		console.log("list button");
-		commentform.submit();
+//		var operation = $(this).data("oper");
+//		console.log(operation);
 		
+//		if(operation === 'modfiy'){
+//			
+			//commentform.attr("action", "/<c:out value="${blog.boardwriter }"/>/modify/<c:out value="${blog.boardbno }"/>");
+//		}
+		
+//		else if(operation === 'list'){
+			//commentform.attr("action", "/<c:out value="${blog.boardwriter }"/>/list/1");
+			//commenform.empty();
+//		}
+		
+//		commentform.submit();
 //	});
 	
 });
