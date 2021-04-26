@@ -72,6 +72,7 @@ public class BlogController {
 		
 		CriteriaTen cri = new CriteriaTen(page, 10);
 		
+		model.addAttribute("test", uservice.test(boardwriter));
 		model.addAttribute("list", bservice.getListT(boardwriter, cri));
 		model.addAttribute("pageMaker", new PageDTOT(cri, 123));
 		

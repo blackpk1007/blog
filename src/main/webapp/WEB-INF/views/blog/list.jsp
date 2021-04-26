@@ -13,10 +13,10 @@
 				<main id="main" class="site-main" role="main">
 				<div class="grid bloggrid">
 					<article>
+					<input type="hidden" name='boardwriter' value='<c:out value="${test.userid}"/>'>
 					<c:forEach items="${list}" var="blog">
 					<header class="entry-header">
 					<input type='hidden' name="boardbno" value='<c:out value="${blog.boardbno }"/>'>
-					<input type="hidden" name='boardwriter' value='<c:out value="${blog.boardwriter}"/>'>
 					<h1 class="entry-title"><a href='/<c:out value="${blog.boardwriter}"/>/get/<c:out value="${blog.boardbno}"/>/1'
 					rel="bookmark"><c:out value="${blog.boardtitle}"/></a></h1>
 					<div class="entry-meta">
@@ -56,7 +56,7 @@
 <script>
 function register_link(){
 	
-	location.href = "/<c:out value="${blog.boardwriter}"/>/register";
+	location.href = "/<c:out value="${test.userid}"/>/register";
 }
 </script>
 <script type="text/javascript">

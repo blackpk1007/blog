@@ -72,7 +72,7 @@ public class BlogServiceImpl implements BlogService{
 		log.info("getListTen");
 		
 		return mapper.getListWithPagingTen(boardwriter, cri);
-	}
+	} 
 	
 	@Override
 	public List<BlogVO> getListF(String boardwriter, CriteriaFive cri) {
@@ -80,6 +80,5 @@ public class BlogServiceImpl implements BlogService{
 		
 		return mapper.getListWithPagingFive(boardwriter, cri);
 	}
-
 
 }

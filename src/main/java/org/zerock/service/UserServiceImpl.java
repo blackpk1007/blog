@@ -39,4 +39,12 @@ public class UserServiceImpl implements UserService{
 		
 	}
 
+	@Override
+	public UserVO test(String userid) {
+		
+		log.info("test");
+		
+		return mapper.test(userid);
+	}
+
 }
