@@ -18,5 +18,4 @@
 		update blog_user set userinformation = #{userinformation}, userhobby = #{userhobby} where userbno = #{userbno};
 	</update>
 	
-	
 </mapper>
