@@ -5,7 +5,7 @@
 
 	<select id="getList" resultType="org.zerock.domain.BlogVO">
 		<![CDATA[
-			select * from blog_board where boardwriter = #{boardwriter} order by boardbno desc
+			select * from blog_board where boardwriter = #{boardwriter} and rownum <= 5 order by boardbno desc
 		]]>
 	</select>
 	
@@ -15,7 +15,7 @@
 			From (
 			Select boardwriter, boardbno, boardcontent, boardtitle, boardsysdate,
           	row_number() over (partition by boardwriter order by boardbno desc) no
-			From blog_board ) Where no=1
+			From blog_board ) Where no=1 and rownum <= 10
 		]]>
 	</select>
 	 

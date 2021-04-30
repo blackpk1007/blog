@@ -43,6 +43,7 @@ public class BlogController {
 		
 		log.info("home");
 		
+		model.addAttribute("test", uservice.test(boardwriter));
 		model.addAttribute("list", bservice.getList(boardwriter));
 		model.addAttribute("user", uservice.read(boardwriter));
 		
@@ -97,6 +98,7 @@ public class BlogController {
 	@GetMapping("/{boardwriter}/register")
 	public String register(@PathVariable("boardwriter") String boardwriter, Model model) {
 		
+		model.addAttribute("test", uservice.test(boardwriter));
 		model.addAttribute("user", uservice.read(boardwriter));
 				
 		return "/blog/register";
@@ -108,6 +110,7 @@ public class BlogController {
 		log.info("register : " + blog);
 		
 		bservice.register(blog);
+		
 		
 		model.addAttribute("user", uservice.read(boardwriter));
 		rttr.addFlashAttribute("result", blog.getBoardbno());
@@ -123,6 +126,7 @@ public class BlogController {
 					
 		log.info("get or modify");
 		
+		model.addAttribute("test", uservice.test(boardwriter));
 		model.addAttribute("list", bservice.getListF(boardwriter, cri));
 		model.addAttribute("blog", bservice.get(boardbno));
 		model.addAttribute("pageMaker", new PageDTOF(cri, 123));
@@ -136,6 +140,7 @@ public class BlogController {
 					     @PathVariable("boardbno") Long boardbno, Model model) {
 		log.info("get or modify");
 		
+		model.addAttribute("test", uservice.test(boardwriter));
 		model.addAttribute("blog", bservice.get(boardbno));
 		
 		return "/blog/modify";
@@ -168,7 +173,8 @@ public class BlogController {
 	public String about(@PathVariable("boardwriter") String boardwriter, Model model) {
 		
 		log.info("about : " + boardwriter);
-		model.addAttribute("about", uservice.read(boardwriter));
+		model.addAttribute("test", uservice.test(boardwriter));
+		model.addAttribute("user", uservice.read(boardwriter));
 		
 		return "blog/about";
 	}
@@ -177,6 +183,7 @@ public class BlogController {
 	public String aboutmodify(@PathVariable("boardwriter") String boardwriter, Model model) {
 		
 		log.info("about : " + boardwriter);
+		model.addAttribute("test", uservice.test(boardwriter));
 		model.addAttribute("about", uservice.read(boardwriter));
 		
 		return "blog/aboutmodify";
@@ -187,6 +194,7 @@ public class BlogController {
 		
 		//log.info("about : " + boardwriter);
 		//model.addAttribute("about", uservice.user(boardwriter));
+		model.addAttribute("test", uservice.test(boardwriter));
 		
 		return "redirect:/{boardwriter}/about";
 	}
@@ -198,6 +206,7 @@ public class BlogController {
 		
 		log.info("guest : " + boardwriter);
 		
+		model.addAttribute("test", uservice.test(boardwriter));
 		model.addAttribute("guest", gservice.getListT(boardwriter, cri));
 		//model.addAttribute("guest", gservice.getList(boardwriter));
 		model.addAttribute("pageMaker", new PageDTOT(cri, 123));

@@ -37,16 +37,3 @@ li.page-numbers{
 			<h1 class="site-title"><a href="/" rel="home">JRag</a></h1>
 			<h2 class="site-description">Minimalist Portfolio HTML Template</h2>
 		</div>
-		<nav id="site-navigation" class="main-navigation">
-		<button class="menu-toggle">Menu</button>
-		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-			<div class="menu-menu-1-container">
-					<ul id="menu-menu-1" class="menu">
-						<li><a href='/blog/home' id="home">Home</a></li>
-						<li><a href="#" id="about">About</a></li>
-						<li><a href="#" id="blog">Blog</a></li>
-						<li><a href="#" id="guest">Guest Book</a></li>
-					</ul>
-			</div>
-		</nav>
-		</header>

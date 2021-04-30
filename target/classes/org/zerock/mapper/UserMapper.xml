@@ -4,18 +4,18 @@
 <mapper namespace="org.zerock.mapper.UserMapper">
 
 	<select id="userList" resultType="org.zerock.domain.UserVO">
-		select * userid from blog_user 
+		select * userid from blog_user
 	</select>
 	
 	<select id="read" resultType="org.zerock.domain.UserVO">
-		select * from blog_user where userid = #{userid} 
-	</select>		
+		select * from blog_user where userid = #{userid}
+	</select>
 	
 	<select id="test" resultType="org.zerock.domain.UserVO">
 		select userid from blog_user where userid = #{userid}
 	</select>
 	<update id="update">
-		update blog_user set userinformation = #{userinformation}, userhobby = #{userhobby} where userbno = #{userbno};
+		update blog_user set userinformation = #{userinformation}, userhobby = #{userhobby} where userbno = #{userbno}
 	</update>
 	
 </mapper>
