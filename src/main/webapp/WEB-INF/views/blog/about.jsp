@@ -32,8 +32,8 @@
 				<c:forEach items="${user}" var="user">
 				<div class="entry-content">
 				<p><c:out value="${user.userid}"/></p>
-				<p><c:out value="${user.userinformation}"/></p>
 				<p><c:out value="${user.userhobby}"/></p>
+				<p><c:out value="${user.userinformation}"/></p>
 				<div class="entry-meta">
 					<p>가입일 :
 					<span class="posted-on"><time class="entry-date published">

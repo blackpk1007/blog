@@ -11,5 +11,6 @@ public class UserVO {
 	private String userpassword;
 	private String userinformation;
 	private String userhobby;
+	private Long userbno;
 	private Date usersysdate;
 }

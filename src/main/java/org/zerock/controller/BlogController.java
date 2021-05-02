@@ -147,26 +147,26 @@ public class BlogController {
 		
 	}
 	
-	@PostMapping("/modify")
-	public String modify(BlogVO blog, RedirectAttributes rttr) {
+	@PostMapping("/{boardwriter}/modify")
+	public String modify(@PathVariable("boardwriter") String boardwriter, BlogVO blog, RedirectAttributes rttr) {
 		
 		log.info("modify : " + blog);
 		
 		if(bservice.modify(blog)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/{boardwriter}/list";
+		return "redirect:/"+boardwriter+"/list";
 	}
 	
-	@PostMapping("/remove")
-	public String remove(@RequestParam("boardbno") Long bno, RedirectAttributes rttr) {
+	@PostMapping("/{boardwriter}/remove")
+	public String remove(@PathVariable("boardwriter") String boardwriter, @RequestParam("boardbno") Long bno, RedirectAttributes rttr) {
 		
 		log.info("remove : " + bno);
 		
 		if(bservice.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/{boardwriter}/list";
+		return "redirect:/"+boardwriter+"/list";
 	}
 	
 	@GetMapping("/{boardwriter}/about")
@@ -190,13 +190,15 @@ public class BlogController {
 	}
 	
 	@PostMapping("/{boardwriter}/about/modify")
-	public String aboutmodify(@PathVariable("boardwriter") String boardwriter, UserVO user, Model model) {
+	public String aboutmodify(@PathVariable("boardwriter") String boardwriter, UserVO user, RedirectAttributes rttr, Model model) {
 		
 		//log.info("about : " + boardwriter);
 		//model.addAttribute("about", uservice.user(boardwriter));
 		model.addAttribute("test", uservice.test(boardwriter));
-		
-		return "redirect:/{boardwriter}/about";
+		if(uservice.modify(user)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		return "redirect:/"+boardwriter+"/about";
 	}
 	
 	@GetMapping("/{boardwriter}/guest/{page}")

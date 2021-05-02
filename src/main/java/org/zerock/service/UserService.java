@@ -14,4 +14,6 @@ public interface UserService {
 	public void update(UserVO user);
 	
 	public UserVO test(String userid);
+	
+	public boolean modify(UserVO user);
 }

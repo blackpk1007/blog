@@ -20,21 +20,22 @@
 		<div id="content" class="site-content">
 			<div id="primary" class="content-area column full">
 					<c:forEach items="${about}" var="blog">
-					<form action="/<c:out value="${blog.userid}"/>/modify" method="post" id="commentform" class="comment-form" novalidate="">
+					<form action="/<c:out value="${blog.userid}"/>/about/modify" method="post" id="commentform" class="comment-form" novalidate="">
+							<input type='hidden' name="userbno" value='<c:out value="${blog.userbno}"/>'>
 							<p class="comment-form-author">
 								<label for="author">Name</label>
 								<input id="author" name="userid" type="text" value='<c:out value="${blog.userid}"/>'  
 								size="30" aria-required="true" required="required" readonly="readonly">
 							</p>
 							<p class="comment-form-author">
-								<label for="title">Information</label>
-								<input id="title" name="userinformation" type="text" value='<c:out value="${blog.userinformation}"/>' 
+								<label for="title">hobby</label>
+								<input id="title" name="userhobby" type="text" value='<c:out value="${blog.userhobby}"/>' 
 								size="30" aria-required="true" required="required">
 							</p>
 							<p class="comment-form-comment">
-								<label for="comment">Hobby</label>
-								<textarea id="comment" name="boardcontent" cols="45" rows="8" 
-								aria-required="true" required="required" ><c:out value="${blog.userhobby}"/></textarea>
+								<label for="comment">Information</label>
+								<textarea id="comment" name="userinformation" cols="45" rows="8" 
+								aria-required="true" required="required" ><c:out value="${blog.userinformation}"/></textarea>
 							</p>
 							<p class="form-submit">
 								<button data-oper="modify" class="btn btn-default">Modify</button>

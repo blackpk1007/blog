@@ -14,8 +14,9 @@
 	<select id="test" resultType="org.zerock.domain.UserVO">
 		select userid from blog_user where userid = #{userid}
 	</select>
-	<update id="update">
-		update blog_user set userinformation = #{userinformation}, userhobby = #{userhobby} where userbno = #{userbno}
+	
+	<update id="modify">
+		update blog_user set userhobby = #{userhobby}, userinformation = #{userinformation} where userbno = #{userbno}
 	</update>
 	
 </mapper>

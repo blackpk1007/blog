@@ -10,8 +10,8 @@ public interface UserMapper {
 	
 	public List<UserVO> read(String userid);
 	
-	public void update(UserVO user);
-	
 	public UserVO test(String userid);
+	
+	public int modify(UserVO user);
 	
 }
