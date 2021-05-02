@@ -97,7 +97,7 @@ function list_link(){
 <script type="text/javascript">
 $(document).ready(function(){
 	
-	var commentform = $("#commentform");
+//	var commentform = $("#commentform");
 
 //	$('button').on("click", function(e){
 		

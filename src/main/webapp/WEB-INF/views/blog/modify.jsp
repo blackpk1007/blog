@@ -19,6 +19,7 @@
 		<div id="comments" class="comments-area">
 					<div id="respond" class="comment-respond">
 						<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/demo-moschino/embed-audio/#respond" style="display:none;">Cancel reply</a></small></h3>
+						<form action="/<c:out value="${blog.boardwriter }"/>/modify" method="get" id="modifyform">
 						<input type="hidden" name="boardbno" value='<c:out value="${blog.boardbno }"/>'>
 							<p class="comment-form-author">
 								<label for="author">Writer</label>
@@ -38,21 +39,47 @@
 							<p class="form-submit">
 								<button data-oper="modify" class="btn btn-default">Modify</button>
 								<button data-oper="remove" class="btn btn-default">Remove</button>
-								<button data-oper="list" class="btn btn-info" onclick="list_link()">List</button>
+								<button data-oper="list" class="btn btn-info" onclick="modifylist_link()">List</button>
 							</p>
+						</form>
 					</div>
 					<!-- #respond -->
 				</div>
 				<!-- #comments -->
 <%@ include file="../includes/footer.jsp" %>
 <script>
-function list_link(){
-	location.href = "/<c:out value="${blog.boardwriter }"/>/list/1";
+function modifylist_link(){
+	
+	location.href = "/<c:out value="${test.userid}"/>/list/1";
 }
 </script>
 <script type="text/javascript">
 $(document).ready(function(){
-
+	var modifyform = $('#modifyform');
+	
+	$('button').on("click", function(e){
+	
+	e.preventDefault();
+	
+	var operation = $(this).data("oper");
+	console.log(operation);
+	
+	if(operation === 'modify'){
+		modifyform.attr("action", "/<c:out value="${blog.boardwriter }"/>/modify")
+		modifyform.attr("method", "post");
+		modifyform.submit();
+	}
+	
+	else if(operation === 'remove'){
+		modifyform.attr("action", "/<c:out value="${blog.boardwriter }"/>/remove")
+		modifyform.attr("method", "post");
+		modifyform.submit();
+	}
+	
+	else if(operation === 'list'){
+		modifyform.attr("action", "/<c:out value="${blog.boardwriter }"/>/list/1");
+	}
+	});
 });
 </script>
 </html>

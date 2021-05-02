@@ -50,23 +50,6 @@ public class BlogController {
 		return "/blog/home";
 	}
 	
-	@PostMapping("/home")
-	public String home(String boardwriter) {
-		
-		return "redirect:/";
-		
-	}
-
-//	@GetMapping("/{boardwriter}.json")
-//	public ResponseEntity<List<BlogVO>> jsonhome(@PathVariable("boardwriter") String boardwriter, Model model) {
-		
-//		log.info("home");
-		
-//		model.addAttribute("list", bservice.getList(boardwriter));
-		
-//		return new ResponseEntity<>(bservice.getList(boardwriter), HttpStatus.OK);
-//	}
-	
 	@GetMapping("/{boardwriter}/list/{page}")
 	public String list(@PathVariable("boardwriter") String boardwriter, 
 						@PathVariable("page") int page, Model model){
@@ -79,21 +62,6 @@ public class BlogController {
 		
 		return "/blog/list";
 	}
-	
-//	@GetMapping(value="/{boardwriter}/list/{page}.json")
-//produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE}
-//	public ResponseEntity<List<BlogVO>> jsonlist(@PathVariable("boardwriter") String boardwriter, @PathVariable("page") int page, Model model) {
-		
-//		log.info("list");
-		
-//		CriteriaTen cri = new CriteriaTen(page, 10);
-		
-//		model.addAttribute("list", bservice.getListT(boardwriter, cri));
-//		model.addAttribute("pageMaker", new PageDTOT(cri));
-		
-//		return new ResponseEntity<>(bservice.getListT(boardwriter, cri), HttpStatus.OK);
-
-//	}
 	
 	@GetMapping("/{boardwriter}/register")
 	public String register(@PathVariable("boardwriter") String boardwriter, Model model) {
@@ -148,14 +116,14 @@ public class BlogController {
 	}
 	
 	@PostMapping("/{boardwriter}/modify")
-	public String modify(@PathVariable("boardwriter") String boardwriter, BlogVO blog, RedirectAttributes rttr) {
+	public String modify(@PathVariable("boardwriter") String boardwriter, BlogVO blog, @RequestParam("boardbno") Long bno, RedirectAttributes rttr) {
 		
 		log.info("modify : " + blog);
 		
 		if(bservice.modify(blog)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/"+boardwriter+"/list";
+		return "redirect:/"+boardwriter+"/get/"+bno+"/1";
 	}
 	
 	@PostMapping("/{boardwriter}/remove")
@@ -166,7 +134,7 @@ public class BlogController {
 		if(bservice.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/"+boardwriter+"/list";
+		return "redirect:/"+boardwriter+"/list/1";
 	}
 	
 	@GetMapping("/{boardwriter}/about")
