@@ -15,4 +15,5 @@
 <script src='/resources/js/plugins.js'></script>
 <script src='/resources/js/scripts.js'></script>
 <script src='/resources/js/masonry.pkgd.min.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

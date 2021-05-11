@@ -82,9 +82,9 @@
 					</div>
 					<div class="modal-footer">
 						<button id='modalModifyBtn' type="button" class="btn btn-warning">Modify</button>
-						<button id='modalRemoveBtn' type="button" class="btn btn-warning">Remove</button>
-						<button id='modalRegisterBtn' type="button" class="btn btn-warning">Register</button>
-						<button id='modalCloseBtn' type="button" class="btn btn-warning">Close</button>
+						<button id='modalRemoveBtn' type="button" class="btn btn-danger">Remove</button>
+						<button id='modalRegisterBtn' type="button" class="btn btn-default">Register</button>
+						<button id='modalCloseBtn' type="button" class="btn btn-default" data-dismiss='modal'>Close</button>
 					</div>
 				</div>
 			</div>
@@ -93,9 +93,18 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-	$("regiBtn").on("click", function(e){
+	var modal = $(".modal");
+	var modifyBtn = $("#modalModifyBtn");
+	var removeBtn = $("#modalRemoveBtn");
+	var registerBtn = $("#modalRegisterBtn");
+	
+	$("#regiBtn").on("click", function(e){
+		$('.modal').modal('show');
+	});
+	
+	modifyBtn.on("click", function(e){
 		
-		$(".modal").modal("show");
+		
 	});
 });
 
