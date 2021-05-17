@@ -16,4 +16,8 @@
 		]]>
 	</select>
 	
+	<insert id="insert">
+		insert into blog_guest (guestid, guestwriter, guestcontent, guestbno) 
+		values(#{guestid}, #{guestwriter}, #{guestcontent}, (select nvl(max(guestbno)+1, 1) from blog_guest))
+	</insert>
 </mapper>

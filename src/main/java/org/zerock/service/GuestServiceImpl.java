@@ -36,4 +36,13 @@ public class GuestServiceImpl implements GuestService{
 		
 		return mapper.getListWithPagingTen(guestid, cri);
 	}
+
+	@Override
+	public void register(GuestVO guest) {
+		
+		log.info("guest insert");
+		
+		mapper.insert(guest);
+		
+	}
 }

@@ -99,13 +99,16 @@ $(document).ready(function(){
 	var registerBtn = $("#modalRegisterBtn");
 	
 	$("#regiBtn").on("click", function(e){
-		$('.modal').modal('show');
+		modal.modal('show');
 	});
 	
-	modifyBtn.on("click", function(e){
+	registerBtn.on("click", function(e){
+		modal.modal("hide");
+	})
+//	modifyBtn.on("click", function(e){
 		
-		
-	});
+//		location.href="/<c:out value="${test.userid }"/>/guest/register"
+//	});
 });
 
 </script>

@@ -183,6 +183,12 @@ public class BlogController {
 		
 		return "blog/guest";
 	}
+	
+	@PostMapping("/{boardwriter}/guest/register")
+	public String guestRegister(@PathVariable("boardwriter") String boardwriter) {
+		
+		return "redirect:/"+boardwriter+"/guest/1";
+	}
 }
 
 

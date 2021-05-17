@@ -11,4 +11,6 @@ public interface GuestService {
 	public List<GuestVO> getList(String guestid);
 	
 	public List<GuestVO> getListT(String guestid, CriteriaTen cri);
+	
+	public void register(GuestVO guest);
 }
