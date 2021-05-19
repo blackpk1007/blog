@@ -38,11 +38,27 @@ public class GuestServiceImpl implements GuestService{
 	}
 
 	@Override
-	public void register(GuestVO guest) {
+	public int register(GuestVO vo) {
 		
 		log.info("guest insert");
 		
-		mapper.insert(guest);
+		return mapper.insert(vo);
 		
+	}
+
+	@Override
+	public int remove(Long bno) {
+		
+		log.info("remove : " + bno);
+		
+		return mapper.delete(bno);
+	}
+
+	@Override
+	public int modify(GuestVO vo) {
+		
+		log.info("modify : " + vo);
+		
+		return mapper.update(vo);
 	}
 }

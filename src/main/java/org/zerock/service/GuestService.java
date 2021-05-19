@@ -12,5 +12,9 @@ public interface GuestService {
 	
 	public List<GuestVO> getListT(String guestid, CriteriaTen cri);
 	
-	public void register(GuestVO guest);
+	public int register(GuestVO guest);
+	
+	public int remove(Long bno);
+	
+	public int modify(GuestVO guset);
 }

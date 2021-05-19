@@ -20,4 +20,12 @@
 		insert into blog_guest (guestid, guestwriter, guestcontent, guestbno) 
 		values(#{guestid}, #{guestwriter}, #{guestcontent}, (select nvl(max(guestbno)+1, 1) from blog_guest))
 	</insert>
+	
+	<delete id="remove">
+		delete from blog_guest where guestbno = #{guestbno}
+	</delete>
+	
+	<update id="modify">
+		update blog_user set guestcontent = #{guestcontent} where guestbno = #{guestbno}
+	</update>
 </mapper>

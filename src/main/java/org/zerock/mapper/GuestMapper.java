@@ -16,5 +16,9 @@ public interface GuestMapper {
 	
 	public List<GuestVO> getListWithPagingTen(@Param("guestid") String guestid, @Param("cri") CriteriaTen cri);
 	
-	public void insert(GuestVO guest);
+	public int insert(GuestVO guest);
+	
+	public int delete(Long bno);
+	
+	public int update(GuestVO guset);
 }
