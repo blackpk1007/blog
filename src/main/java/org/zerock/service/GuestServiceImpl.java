@@ -61,4 +61,12 @@ public class GuestServiceImpl implements GuestService{
 		
 		return mapper.update(vo);
 	}
+
+	@Override
+	public GuestVO get(Long bno) {
+		
+		log.info("get : " + bno);
+		
+		return mapper.read(bno);
+	}
 }

@@ -21,13 +21,15 @@ var userService = (function(){
 			}
 		});
 	}
-	function add(reply, callback, error){
+	
+	
+	function add(guestreply, callback, error){
 		console.log("add reply............");
 		
 		$.ajax({
 			type : 'post',
-			url : '/replies/new',
-			data : JSON.stringify(reply),
+			url : '/guestreply/register',
+			data : JSON.stringify(guestreply),
 			contentType : "application/json; charset=utf-8",
 			success : function(result, status, xhr){
 				if(callback){

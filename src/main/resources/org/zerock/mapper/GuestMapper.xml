@@ -26,6 +26,16 @@
 	</delete>
 	
 	<update id="modify">
-		update blog_user set guestcontent = #{guestcontent} where guestbno = #{guestbno}
+		update blog_guest set guestcontent = #{guestcontent} where guestbno = #{guestbno}
 	</update>
+	
+	<select id="getCountByBno" resultType="int">
+		<![CDATA[
+		select count(rno) from blog_guest where guestbno = #{guestbno}
+		]]>
+	</select>
+	
+	<select id="read" resultType="org.zerock.domain.ReplyVO">
+		select * from blog_guest where guestrno = #{guestrno}
+	</select>
 </mapper>

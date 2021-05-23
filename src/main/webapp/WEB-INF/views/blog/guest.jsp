@@ -98,13 +98,14 @@ $(document).ready(function(){
 	var removeBtn = $("#modalRemoveBtn");
 	var registerBtn = $("#modalRegisterBtn");
 	
+	var bnoValue = '<c:out value="${guest.guestbno}"/>';
 	$("#regiBtn").on("click", function(e){
 		modal.modal('show');
 	});
 	
 	registerBtn.on("click", function(e){
 		modal.modal("hide");
-	})
+	});
 //	modifyBtn.on("click", function(e){
 		
 //		location.href="/<c:out value="${test.userid }"/>/guest/register"

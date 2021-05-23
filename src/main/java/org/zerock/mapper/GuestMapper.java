@@ -21,4 +21,6 @@ public interface GuestMapper {
 	public int delete(Long bno);
 	
 	public int update(GuestVO guset);
+	
+	public GuestVO read(Long bno);
 }
