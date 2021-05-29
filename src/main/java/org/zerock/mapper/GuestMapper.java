@@ -23,4 +23,5 @@ public interface GuestMapper {
 	public int update(GuestVO guset);
 	
 	public GuestVO read(Long bno);
+
 }

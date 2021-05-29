@@ -35,7 +35,7 @@
 		]]>
 	</select>
 	
-	<select id="read" resultType="org.zerock.domain.ReplyVO">
-		select * from blog_guest where guestrno = #{guestrno}
+	<select id="read" resultType="org.zerock.domain.GuestVO">
+		select * from blog_guest where guestbno = #{guestbno}
 	</select>
 </mapper>

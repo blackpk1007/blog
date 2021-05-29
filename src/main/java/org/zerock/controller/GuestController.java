@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +27,7 @@ public class GuestController {
 
 	private GuestService gservice;
 	
-	@PostMapping(value = "/register", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+	@PostMapping(value = "/register", consumes = "application/json", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity<String> GuestRegister(@RequestBody GuestVO vo) {
 		
 		log.info("GuestVO : " + vo);
@@ -41,13 +42,13 @@ public class GuestController {
 	}
 	
 	@RequestMapping(method = { RequestMethod.PUT, RequestMethod.PATCH }, 
-			value = "/{guestrno}", consumes = "application/json")
-	public ResponseEntity<String> modify(@RequestBody GuestVO vo, @PathVariable("guestrno") Long guestrno){
+			value = "/{guestbno}", consumes = "application/json")
+	public ResponseEntity<String> modify(@RequestBody GuestVO vo, @PathVariable("guestbno") Long guestbno){
 
 		//	vo.setRno(rno);
 
 
-		log.info("rno : " + guestrno);
+		log.info("rno : " + guestbno);
 		log.info("modify : " + vo);
 
 		return gservice.modify(vo) == 1
@@ -55,17 +56,25 @@ public class GuestController {
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@DeleteMapping("/{guestrno}")
-	public ResponseEntity<String> remove(@RequestBody GuestVO vo, @PathVariable("guestrno") Long guestrno){
+	@DeleteMapping("/{guestbno}")
+	public ResponseEntity<String> remove(@RequestBody GuestVO vo, @PathVariable("guestbno") Long guestbno){
 		
-		log.info("remove : " + guestrno);
+		log.info("remove : " + guestbno);
 		
-		log.info("replyer : " + vo.getGuestwriter());
+		log.info("guestwriter : " + vo.getGuestwriter());
 		
-		return gservice.remove(guestrno) == 1 
+		return gservice.remove(guestbno) == 1 
 				? new ResponseEntity<>("success", HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 				
+	}
+	
+	@GetMapping(value = "/{guestbno}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
+	public ResponseEntity<GuestVO> get(@PathVariable("guestbno") Long guestbno){
+		
+		log.info("get : " + guestbno);
+		
+		return new ResponseEntity<>(gservice.get(guestbno), HttpStatus.OK);
 	}
 
 }

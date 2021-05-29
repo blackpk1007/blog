@@ -68,6 +68,10 @@
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
+							<label>Form</label>
+							<input class="form-control" name='guestid' value='<c:out value="${test.userid}"/>' readonly="readonly">
+						</div>
+						<div class="form-group">
 							<label>Guest</label>
 							<input class="form-control" name='guestwriter' value=''>
 						</div>
@@ -75,11 +79,11 @@
 							<label>content</label>
 							<input class="form-control" name='guestcontent' value=''>
 						</div>
-						<div class="form-group">
+<!--					<div class="form-group">
 							<label>guest date</label>
 							<input class="form-control" name='guestsysdate' value=''>
 						</div>
-					</div>
+					</div> -->
 					<div class="modal-footer">
 						<button id='modalModifyBtn' type="button" class="btn btn-warning">Modify</button>
 						<button id='modalRemoveBtn' type="button" class="btn btn-danger">Remove</button>
@@ -90,6 +94,7 @@
 			</div>
 		</div>
 <%@ include file="../includes/footer.jsp" %>
+<script type="text/javascript" src="/resources/js/reply.js"></script> 
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -98,18 +103,36 @@ $(document).ready(function(){
 	var removeBtn = $("#modalRemoveBtn");
 	var registerBtn = $("#modalRegisterBtn");
 	
-	var bnoValue = '<c:out value="${guest.guestbno}"/>';
+	var modalguestid = modal.find("input[name='guestid']");
+	var modalguestwriter = modal.find("input[name='guestwriter']");
+	var modalguestcontent = modal.find("input[name='guestcontent']");
+	var modalguestsysdate = modal.find("input[name='gueststysdate']");
+	
 	$("#regiBtn").on("click", function(e){
+
 		modal.modal('show');
 	});
 	
 	registerBtn.on("click", function(e){
-		modal.modal("hide");
-	});
-//	modifyBtn.on("click", function(e){
 		
-//		location.href="/<c:out value="${test.userid }"/>/guest/register"
-//	});
+		var guestreply = {
+				guestid : modalguestid.val(),
+				guestwriter : modalguestwriter.val(),
+				guestcontent : modalguestcontent.val(),
+				
+		};
+		userService.add(guestreply, function(result){
+		});
+		
+		modal.modal('hide');
+		location.reload();
+		modal.find("input").val("");
+	});
+	
+	$(".entry-title").on("click", function(e){
+		
+		
+	});
 });
 
 </script>

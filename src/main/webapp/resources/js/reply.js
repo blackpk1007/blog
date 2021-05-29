@@ -41,14 +41,14 @@ var userService = (function(){
 					error(er);
 				}
 			}
-		})
+		});
 	}
-		function remove(rno, replyer, callback, error){
+		function remove(guestbno, guestwriter, callback, error){
 		
 		$.ajax({
 			type : 'delete',
-			url : '/replies/' + rno,
-			data : JSON.stringify({rno:rno, replyer:replyer}),
+			url : '/guestreply/' + guestbno,
+			data : JSON.stringify({guestbno:guestbno, guestwriter:guestwriter}),
 			contentType : "application/json; charset=utf-8",
 			success : function(deleteResult, status, xhr){
 				if(callback){
@@ -61,13 +61,13 @@ var userService = (function(){
 				}
 			}
 		});
-	}
+	} 
 	
 	function update(reply, callback, error){
 		
-		$.ajax({
+		$.ajax({ 
 			type : 'put',
-			url : '/replies/' + reply.rno,
+			url : '/guestreply/' + reply.rno,
 			data : JSON.stringify(reply),
 			contentType : "application/json; charset=utf-8",
 			success : function(result, status, xhr){
@@ -79,8 +79,26 @@ var userService = (function(){
 				if(error){
 					error(er);
 				}
+			} 
+		});
+	}
+	
+	function get(guestbno, callback, error){
+		
+		$.get("/guestreply/" + guestbno + ".json", function(result){
+			
+			if(callback){
+				callback(result);
+			}
+		}).fail(function(xhr, status, err){
+			if(error){
+				error();
 			}
 		});
 	}
-	return {list : list};
+	
+	return {add : add, 
+			remove : remove,
+			update : update,
+			get : get};
 })();
