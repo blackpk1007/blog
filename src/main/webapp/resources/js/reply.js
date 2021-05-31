@@ -63,12 +63,12 @@ var userService = (function(){
 		});
 	} 
 	
-	function update(reply, callback, error){
+	function update(guestreply, callback, error){
 		
 		$.ajax({ 
 			type : 'put',
-			url : '/guestreply/' + reply.rno,
-			data : JSON.stringify(reply),
+			url : '/guestreply/' + guestreply.gusetbno,
+			data : JSON.stringify(guestreply),
 			contentType : "application/json; charset=utf-8",
 			success : function(result, status, xhr){
 				if(callback){

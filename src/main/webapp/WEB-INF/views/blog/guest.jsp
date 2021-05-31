@@ -25,7 +25,7 @@
 				<div class="grid bloggrid">
 					<article>
 					<c:forEach items="${guest}" var="guest">
-					<header class="entry-header">
+					<header class="entry-header" data-rno="<c:out value="${guest.guestbno}"/>">
 						<h1 class="entry-title"><c:out value="${guest.guestwriter}"/></h1>
 							<div class="entry-meta">
 								<span class="posted-on"><time class="entry-date published">
@@ -129,9 +129,54 @@ $(document).ready(function(){
 		modal.find("input").val("");
 	});
 	
-	$(".entry-title").on("click", function(e){
+	$(".entry-header").on("click", function(e){
+		 
+		var guestbno = $(this).data("rno");
 		
+		userService.get(guestbno, function(guest){
+			
+			modalguestwriter.val(guest.guestwriter);
+			modalguestcontent.val(guest.guestcontent);
+			modalguestsysdate.val(guest.guestsysdate);
+			modal.data("rno", guest.guestbno);
+			
+			modal.modal('show');
+		});
+	});
+	
+	removeBtn.on("click", function(e){
 		
+		var guestbno = modal.data("rno");
+		
+//		if(!guestwrtier){
+//			alert("로그인후 삭제가 가능합니다.");
+//			modal.modal("hide");
+//			return;
+//		}
+		var originalguestwriter = modalguestwriter.val();
+		
+		userService.remove(guestbno, originalguestwriter, function(e){
+			
+		});
+		modal.modal("hide");
+		location.reload();
+		
+	});
+	
+	modifyBtn.on("click", function(e){
+		
+		var originalguestwriter = modalguestwriter.val();
+		
+		var guestreply = {
+				guestcontent : modalguestcontent.val(),
+				guestbno : modal.data("rno")
+		};
+		
+		userService.update(guestreply, function(e){
+			
+		});
+		modal.modal("hide");
+		location.reload();
 	});
 });
 
