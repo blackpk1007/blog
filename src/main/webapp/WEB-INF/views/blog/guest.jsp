@@ -118,7 +118,7 @@ $(document).ready(function(){
 		var guestreply = {
 				guestid : modalguestid.val(),
 				guestwriter : modalguestwriter.val(),
-				guestcontent : modalguestcontent.val(),
+				guestcontent : modalguestcontent.val()
 				
 		};
 		userService.add(guestreply, function(result){

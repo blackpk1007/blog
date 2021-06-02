@@ -67,7 +67,7 @@ var userService = (function(){
 		
 		$.ajax({ 
 			type : 'put',
-			url : '/guestreply/' + guestreply.gusetbno,
+			url : '/guestreply/' + guestreply.guestbno,
 			data : JSON.stringify(guestreply),
 			contentType : "application/json; charset=utf-8",
 			success : function(result, status, xhr){

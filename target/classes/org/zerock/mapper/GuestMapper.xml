@@ -25,7 +25,7 @@
 		delete from blog_guest where guestbno = #{guestbno}
 	</delete>
 	
-	<update id="modify">
+	<update id="update">
 		update blog_guest set guestcontent = #{guestcontent} where guestbno = #{guestbno}
 	</update>
 	
