@@ -27,6 +27,17 @@
 			<h2 class="site-description">Minimalist Portfolio HTML Template</h2>
 		</div>
 		</header>
+		<form id='searchForm' action="/home" method='get'>
+        	<select name='type'>
+            	<option value="" <c:out value="{pageMaker.cri.type == null?'selected':''}"/>>--</option>
+                <option value="T" <c:out value="{pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
+                <option value="W" <c:out value="{pageMaker.cri.type eq 'W'?'selected':''}"/>>작성자</option>
+            </select>
+            <input type="text" placeholder="검색어 입력" value='<c:out value="${pageMaker.cri.keyword}"/>'/>
+            <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>'/>
+            <input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>'/>
+            <button class='btn btn-default'>Search</button>
+    	</form>
 			<c:forEach items="${blist}" var="blog">
 			<div>
 				<div class="userid">
