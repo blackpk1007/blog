@@ -60,7 +60,22 @@
 			</c:forEach>
 		</div>
 		
-
+		<div class="page">
+				<ul class="page-numbers">
+					<c:if test="${pageMaker.prev }">
+						<li class="page-numbers prev"><a href="${pageMaker.startPage - 2}">Previous</a></li>
+					</c:if>
+					
+					<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+						<li class="page-numbers" ${pageMaker.cri.pageNum == num ? "active":""}><a href="${num }">${num }</a></li>
+					</c:forEach>
+					
+					<c:if test="${pageMaker.next }">
+						<li class="page-numbers next"><a href="${pageMaker.endPage + 1 }">Next</a></li>
+					</c:if>
+				</ul>
+			</div>
+		
 	<!-- .container -->
 	<footer id="colophon" class="site-footer">
 	<div class="container">

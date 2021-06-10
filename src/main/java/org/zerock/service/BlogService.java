@@ -8,7 +8,7 @@ import org.zerock.domain.CriteriaTen;
 
 public interface BlogService {
 	
-	public List<BlogVO> homeList();
+	public List<BlogVO> homeList(CriteriaTen cri);
 	
 	public List<BlogVO> getList(String boardwriter);
 	

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.zerock.domain.CriteriaTen;
 import org.zerock.service.BlogService;
 import org.zerock.service.UserService;
 
@@ -26,10 +27,12 @@ public class HomeController {
 	private BlogService bservice;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String home(Model model, CriteriaTen cri) {
 		
-		model.addAttribute("blist", bservice.homeList());
+		model.addAttribute("blist", bservice.homeList(cri));
 		//model.addAttribute("ulist", uservice.userList());
+		
+		//int total = bservice.getTotal(cri);
 		
 		return "home";
 	}

@@ -24,19 +24,26 @@
 		]]>
 	</select>
 
-	<select id="homeList" resultType="org.zerock.domain.BlogVO">
+	<select id="homeList" parameterType="map" resultType="org.zerock.domain.BlogVO">
 		<![CDATA[
-			Select boardwriter, boardbno, boardcontent, boardtitle, boardsysdate 
+			Select 
+				boardwriter, boardbno, boardcontent, boardtitle, boardsysdate 
 			From (
-			Select boardwriter, boardbno, boardcontent, boardtitle, boardsysdate,
-          	row_number() over (partition by boardwriter order by boardbno desc) no
-			From blog_board ) Where
+			select 
+				/*+INDEX_DESC(blog_board pk_board)*/ rownum rn, boardwriter, boardbno, boardcontent, boardtitle, boardsysdate 
+			from 
+				blog_board 
+			where
+			
 		]]>
-			 
-			<include refid="criteria"></include>
+		
+		<include refid="criteria"></include>
 		
 		<![CDATA[
-			no=1 and rownum <= 5
+				boardwriter = #{boardwriter} and rownum <= #{cri.pageNum} * #{cri.amount})
+			where 
+				rn > (#{cri.pageNum} -1) * #{cri.amount}
+		
 		]]>
 	</select>
 	 

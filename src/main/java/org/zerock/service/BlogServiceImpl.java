@@ -52,11 +52,11 @@ public class BlogServiceImpl implements BlogService{
 	}
 	
 	@Override
-	public List<BlogVO> homeList(){
+	public List<BlogVO> homeList(CriteriaTen cri){
 		
 		log.info("getList");
 		
-		return mapper.homeList();
+		return mapper.homeList(cri);
 	}
 	
 	@Override

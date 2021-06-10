@@ -11,7 +11,7 @@ import org.zerock.domain.CriteriaTen;
 @Mapper
 public interface BlogMapper {
 	
-	public List<BlogVO> homeList();
+	public List<BlogVO> homeList(@Param("cri") CriteriaTen cri);
 	
 	public List<BlogVO> getList(String boardwriter);
 	
