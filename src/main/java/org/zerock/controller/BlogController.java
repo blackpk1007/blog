@@ -37,9 +37,19 @@ public class BlogController {
 	private BlogService bservice;
 	private UserService uservice;
 	private GuestService gservice;
-
+	
+	/*@GetMapping("/{page}")
+	public String homePage(Model model, @PathVariable("page") int page){
+		
+		CriteriaTen cri = new CriteriaTen(page, 10);
+		model.addAttribute("blist", bservice.homePageList(cri));
+		
+		
+		return "homepage";
+	}*/
+	
 	@GetMapping("/{boardwriter}")
-	public String home(@PathVariable String boardwriter, Model model) {
+	public String home(@PathVariable("boardwriter") String boardwriter, Model model) {
 		
 		log.info("home");
 		

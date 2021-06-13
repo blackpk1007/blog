@@ -51,6 +51,14 @@ public class BlogServiceImpl implements BlogService{
 		return mapper.read(bno);
 	}
 	
+	/*@Override
+	public List<BlogVO> homeList(){
+		
+		log.info("getList");
+		
+		return mapper.homeList();
+	}*/
+	
 	@Override
 	public List<BlogVO> homeList(CriteriaTen cri){
 		

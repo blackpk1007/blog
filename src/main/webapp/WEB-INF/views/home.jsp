@@ -15,8 +15,22 @@
 <link rel='stylesheet' href='/resources/style.css' type='text/css' media='all'/>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all'/>
 <link rel='stylesheet' href='/resources/css/easy-responsive-shortcodes.css' type='text/css' media='all'/>
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
+<style type='text/css'>
+ul.page-numbers{
+	list-style-type:none;
+	
+}
+li.page-numbers{
+	display:inline-block;
+}
+.line{
+	board-bottom:1px;
+}
+</style>
 </head>
 <body class="blog">
 <div id="page">
@@ -33,7 +47,7 @@
                 <option value="T" <c:out value="{pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
                 <option value="W" <c:out value="{pageMaker.cri.type eq 'W'?'selected':''}"/>>작성자</option>
             </select>
-            <input type="text" placeholder="검색어 입력" value='<c:out value="${pageMaker.cri.keyword}"/>'/>
+            <input type="text" name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' placeholder="검색어 입력" />
             <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>'/>
             <input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>'/>
             <button class='btn btn-default'>Search</button>
@@ -67,7 +81,8 @@
 					</c:if>
 					
 					<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-						<li class="page-numbers" ${pageMaker.cri.pageNum == num ? "active":""}><a href="${num }">${num }</a></li>
+						<li class="page-numbers" ${pageMaker.cri.pageNum == num ? "active":""}>
+						<a href="${num }">${num }</a></li>
 					</c:forEach>
 					
 					<c:if test="${pageMaker.next }">
@@ -75,7 +90,12 @@
 					</c:if>
 				</ul>
 			</div>
-		
+		    <form id='actionForm' action="/" method='get'>
+               	<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+               	<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+               	<input type='hidden' name='type' value='<c:out value="${pageMaker.cri.type}"/>'>
+               	<input type='hidden' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>'>
+            </form>
 	<!-- .container -->
 	<footer id="colophon" class="site-footer">
 	<div class="container">
@@ -89,10 +109,10 @@
 </div>
 <!-- #page -->
 <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
-<script src='/resources/js/plugins.js'></script>-
+<script src='/resources/js/plugins.js'></script>
 <script src='/resources/js/scripts.js'></script>
 <script src='/resources/js/masonry.pkgd.min.js'></script>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 
 <script type="text/javascript">
