@@ -41,7 +41,7 @@ li.page-numbers{
 			<h2 class="site-description">Minimalist Portfolio HTML Template</h2>
 		</div>
 		</header>
-		<form id='searchForm' action="/main/1" method='get'>
+		<form id='searchForm' action="/home" method='get'>
         	<select name='type'>
             	<option value="" <c:out value="{pageMaker.cri.type == null?'selected':''}"/>>--</option>
                 <option value="T" <c:out value="{pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
@@ -73,6 +73,29 @@ li.page-numbers{
 			</div>
 			</c:forEach>
 		</div>
+		
+		<form id='actionForm' action="" method='get'>
+		<div class="page">
+				<ul class="page-numbers">
+					<c:if test="${pageMaker.prev }">
+						<li class="page-numbers prev"><a href="${pageMaker.startPage - 2}">Previous</a></li>
+					</c:if>
+					
+					<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+						<li class="page-numbers" ${pageMaker.cri.pageNum == num ? "active":""}>
+						<a href="${num }">${num }</a></li>
+					</c:forEach>
+					
+					<c:if test="${pageMaker.next }">
+						<li class="page-numbers next"><a href="${pageMaker.endPage + 1 }">Next</a></li>
+					</c:if>
+				</ul>
+			</div>
+               	<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+               	<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+               	<input type='hidden' name='type' value='<c:out value="${pageMaker.cri.type}"/>'>
+               	<input type='hidden' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>'>
+            </form>
 	<!-- .container -->
 	<footer id="colophon" class="site-footer">
 	<div class="container">

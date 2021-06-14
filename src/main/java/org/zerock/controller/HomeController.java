@@ -31,10 +31,9 @@ public class HomeController {
 	private BlogService bservice;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model, CriteriaTen cri) {
+	public String home(Model model) {
 
-		model.addAttribute("blist", bservice.homeList(cri));
-		model.addAttribute("pageMaker", new PageDTOT(cri, 123));
+		model.addAttribute("blist", bservice.homeList());
 		
 		//int total = bservice.getTotal(cri);
 		

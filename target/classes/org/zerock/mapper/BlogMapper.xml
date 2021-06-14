@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
 <mapper namespace="org.zerock.mapper.BlogMapper">
+
 	<sql id="criteriaTen">
 		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
 			<foreach item='type' collection="typeArr">
@@ -24,7 +26,7 @@
 		]]>
 	</select>
 	
-	<!--  <select id="homeList" parameterType="map" resultType="org.zerock.domain.BlogVO">
+	<select id="homeList" resultType="org.zerock.domain.BlogVO">
 		<![CDATA[
 		Select 
 			boardwriter, boardbno, boardtitle, boardsysdate 
@@ -37,9 +39,9 @@
 		Where 
 			no=1 and rownum <= 5
 		]]>
-	</select>-->
+	</select>
 	
-	<select id="homeList" parameterType="map" resultType="org.zerock.domain.BlogVO">
+	<select id="mainpage" parameterType="map" resultType="org.zerock.domain.BlogVO">
 		<![CDATA[
 			Select 
 				boardwriter, boardbno, boardcontent, boardtitle, boardsysdate 
@@ -97,5 +99,5 @@
 	<delete id="delete">
 		delete from blog_board where boardbno = #{boardbno}
 	</delete>
-
+	
 </mapper>

@@ -38,15 +38,16 @@ public class BlogController {
 	private UserService uservice;
 	private GuestService gservice;
 	
-	/*@GetMapping("/{page}")
+	@GetMapping("/main/{page}")
 	public String homePage(Model model, @PathVariable("page") int page){
 		
 		CriteriaTen cri = new CriteriaTen(page, 10);
-		model.addAttribute("blist", bservice.homePageList(cri));
+		
+		model.addAttribute("blist", bservice.mainpage(cri));
 		
 		
 		return "homepage";
-	}*/
+	}
 	
 	@GetMapping("/{boardwriter}")
 	public String home(@PathVariable("boardwriter") String boardwriter, Model model) {
