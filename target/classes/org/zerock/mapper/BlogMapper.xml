@@ -10,16 +10,17 @@
 				<trim prefix="OR">
 					<choose>
 						<when test="type == 'T'.toString()">
-							title like '%'||#{keyword}||'%'
+							boardtitle like '%'||#{keyword}||'%'
 						</when>
 						<when test="type == 'W'.toString()">
-							writer like '%'||#{keyword}||'%'
+							boardwriter like '%'||#{keyword}||'%'
 						</when>
 					</choose>
 				</trim>
 			</foreach>
 		</trim>
 	</sql>
+	
 	<select id="getList" resultType="org.zerock.domain.BlogVO">
 		<![CDATA[
 			select * from blog_board where boardwriter = #{boardwriter} and rownum <= 5 order by boardbno desc
@@ -41,13 +42,14 @@
 		]]>
 	</select>
 	
-	<select id="mainpage" parameterType="map" resultType="org.zerock.domain.BlogVO">
+	<select id="mainpage" resultType="org.zerock.domain.BlogVO">
 		<![CDATA[
-			Select 
-				boardwriter, boardbno, boardcontent, boardtitle, boardsysdate 
-			From (
 			select 
-				/*+INDEX_DESC(blog_board pk_board)*/ rownum rn, boardwriter, boardbno, boardcontent, boardtitle, boardsysdate 
+				boardwriter, boardbno, boardcontent, boardtitle, boardsysdate 
+			from 
+			(select
+				/*+INDEX_DESC(blog_board pk_board)*/ 
+				rownum rn, boardwriter, boardbno, boardcontent, boardtitle, boardsysdate 
 			from 
 				blog_board 
 			where
@@ -63,7 +65,25 @@
 		
 		]]>
 	</select>
-	 
+	
+	<select id="getTotalCountT" resultType="int">
+	<![CDATA[
+	select 
+		count(*) from blog_board 
+	where
+		boardbno > 0
+	]]> 
+	</select>
+	
+	<select id="getTotalCountF" resultType="int">
+	<![CDATA[
+	select 
+		count(*) from blog_board 
+	where
+		boardbno > 0
+	]]> 
+	</select>
+
 	<select id="getListWithPagingTen"  parameterType="map" resultType="org.zerock.domain.BlogVO">
 		<![CDATA[
 			select boardbno, boardwriter, boardtitle, boardsysdate 

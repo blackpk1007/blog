@@ -25,5 +25,8 @@ public interface BlogService {
 	public void register(BlogVO blog);
 	
 	public BlogVO get(Long bno);
-
+	
+	public int getTotalT();
+	
+	public int getTotalF();
 }

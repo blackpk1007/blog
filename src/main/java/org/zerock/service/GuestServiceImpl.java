@@ -69,4 +69,12 @@ public class GuestServiceImpl implements GuestService{
 		
 		return mapper.read(bno);
 	}
+
+	@Override
+	public int getTotalG() {
+		
+		log.info("total count");
+		
+		return mapper.getTotalCount();
+	}
 }

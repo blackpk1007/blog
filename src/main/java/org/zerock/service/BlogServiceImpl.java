@@ -89,4 +89,18 @@ public class BlogServiceImpl implements BlogService{
 		return mapper.getListWithPagingFive(boardwriter, cri);
 	}
 
+	@Override
+	public int getTotalT() {
+		
+		log.info("total count");
+		return mapper.getTotalCountT();
+	}
+
+	@Override
+	public int getTotalF() {
+		
+		log.info("total count");
+		return mapper.getTotalCountF();
+	}
+
 }

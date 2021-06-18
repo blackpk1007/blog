@@ -25,6 +25,10 @@ public interface BlogMapper {
 	
 	public int delete(Long bno);
 	
+	public int getTotalCountT();
+	
+	public int getTotalCountF();
+	
 	public List<BlogVO> getListWithPagingTen(@Param("boardwriter") String boardwriter, @Param("cri") CriteriaTen cri);
 	
 	public List<BlogVO> getListWithPagingFive(@Param("boardwriter") String boardwriter, @Param("cri") CriteriaFive cri);

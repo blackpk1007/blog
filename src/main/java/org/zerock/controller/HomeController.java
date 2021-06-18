@@ -31,10 +31,10 @@ public class HomeController {
 	private BlogService bservice;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String home(Model model, CriteriaTen cri) {
 
 		model.addAttribute("blist", bservice.homeList());
-		
+		model.addAttribute("pageMaker", new PageDTOT(cri, 100));
 		//int total = bservice.getTotal(cri);
 		
 		return "home";

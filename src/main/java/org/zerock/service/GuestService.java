@@ -19,4 +19,6 @@ public interface GuestService {
 	public int modify(GuestVO guset);
 	
 	public GuestVO get(Long bno);
+	
+	public int getTotalG();
 }

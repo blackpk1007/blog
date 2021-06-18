@@ -42,9 +42,10 @@ public class BlogController {
 	public String homePage(Model model, @PathVariable("page") int page){
 		
 		CriteriaTen cri = new CriteriaTen(page, 10);
+		int total = bservice.getTotalT();
 		
 		model.addAttribute("blist", bservice.mainpage(cri));
-		
+		model.addAttribute("pageMaker", new PageDTOT(cri, total));
 		
 		return "homepage";
 	}
@@ -66,10 +67,11 @@ public class BlogController {
 						@PathVariable("page") int page, Model model){
 		
 		CriteriaTen cri = new CriteriaTen(page, 10);
+		int total = bservice.getTotalT();
 		
 		model.addAttribute("test", uservice.test(boardwriter));
 		model.addAttribute("list", bservice.getListT(boardwriter, cri));
-		model.addAttribute("pageMaker", new PageDTOT(cri, 123));
+		model.addAttribute("pageMaker", new PageDTOT(cri, total));
 		
 		return "/blog/list";
 	}
@@ -104,11 +106,12 @@ public class BlogController {
 		CriteriaFive cri = new CriteriaFive(page, 5);
 					
 		log.info("get or modify");
+		int total = bservice.getTotalF();
 		
 		model.addAttribute("test", uservice.test(boardwriter));
 		model.addAttribute("list", bservice.getListF(boardwriter, cri));
 		model.addAttribute("blog", bservice.get(boardbno));
-		model.addAttribute("pageMaker", new PageDTOF(cri, 123));
+		model.addAttribute("pageMaker", new PageDTOF(cri, total));
 		
 		return "/blog/get";
 		
@@ -184,13 +187,14 @@ public class BlogController {
 	public String guest(@PathVariable("boardwriter") String boardwriter, 
 					    @PathVariable("page") int page, Model model) {
 		CriteriaTen cri = new CriteriaTen(page, 10);
+		int total = gservice.getTotalG();
 		
 		log.info("guest : " + boardwriter);
 		
 		model.addAttribute("test", uservice.test(boardwriter));
 		model.addAttribute("guest", gservice.getListT(boardwriter, cri));
 		//model.addAttribute("guest", gservice.getList(boardwriter));
-		model.addAttribute("pageMaker", new PageDTOT(cri, 123));
+		model.addAttribute("pageMaker", new PageDTOT(cri, total));
 		
 		return "blog/guest";
 	}

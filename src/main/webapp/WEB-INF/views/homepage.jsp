@@ -41,21 +41,21 @@ li.page-numbers{
 			<h2 class="site-description">Minimalist Portfolio HTML Template</h2>
 		</div>
 		</header>
-		<form id='searchForm' action="/home" method='get'>
+		<form id='searchForm' action="/main/1" method='get'>
         	<select name='type'>
             	<option value="" <c:out value="{pageMaker.cri.type == null?'selected':''}"/>>--</option>
                 <option value="T" <c:out value="{pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
                 <option value="W" <c:out value="{pageMaker.cri.type eq 'W'?'selected':''}"/>>작성자</option>
             </select>
             <input type="text" name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' placeholder="검색어 입력" />
-            <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>'/>
-            <input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>'/>
+           <!-- <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>'/>
+            <input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>'/> -->
             <button class='btn btn-default'>Search</button>
     	</form>
 			<c:forEach items="${blist}" var="blog">
 			<div>
 				<div class="userid">
-					<p class="p-userid"><a href="<c:out value="${blog.boardwriter}"/>"><c:out value="${blog.boardwriter}"/></a></p>
+					<p class="p-userid"><a href="/<c:out value="${blog.boardwriter}"/>"><c:out value="${blog.boardwriter}"/></a></p>
 				</div>
 				<table >
 					<tr>
@@ -74,7 +74,6 @@ li.page-numbers{
 			</c:forEach>
 		</div>
 		
-		<form id='actionForm' action="" method='get'>
 		<div class="page">
 				<ul class="page-numbers">
 					<c:if test="${pageMaker.prev }">
@@ -91,8 +90,7 @@ li.page-numbers{
 					</c:if>
 				</ul>
 			</div>
-               	<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
-               	<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+			<form id='actionForm' action="/main/1" method='get'>
                	<input type='hidden' name='type' value='<c:out value="${pageMaker.cri.type}"/>'>
                	<input type='hidden' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>'>
             </form>
@@ -116,7 +114,7 @@ li.page-numbers{
 </body>
 
 <script type="text/javascript">
-//$(document).ready(function(){
+$(document).ready(function(){
 	
 //	var boardwriter = $(".boardwriter");
 	
@@ -131,6 +129,27 @@ li.page-numbers{
 	//});
 	
 //});
+
+var searchForm = $("#searchForm");
+	
+	$("#searchForm button").on("click", function(e){
+		
+		if(!searchForm.find("option:selected").val()){
+			alert("검색종류를 선택하세요")
+			return false;
+		}
+		
+		if(!searchForm.find("input[name='keyword']").val()){
+			alert("키워드를 입력하세요")
+			return false;
+		}
+		
+	//	searchForm.find("input[name='pageNum']").val("1");
+	//	e.preventDefault();
+		
+		searchForm.submit();
+	});
+});
 </script>
 
 </html>
