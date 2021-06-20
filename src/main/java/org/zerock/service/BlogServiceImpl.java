@@ -77,6 +77,7 @@ public class BlogServiceImpl implements BlogService{
 	
 	@Override
 	public List<BlogVO> getListT(String boardwriter, CriteriaTen cri) {
+		
 		log.info("getListTen");
 		
 		return mapper.getListWithPagingTen(boardwriter, cri);
@@ -84,23 +85,26 @@ public class BlogServiceImpl implements BlogService{
 	
 	@Override
 	public List<BlogVO> getListF(String boardwriter, CriteriaFive cri) {
+		
 		log.info("getListFive");
 		
 		return mapper.getListWithPagingFive(boardwriter, cri);
 	}
 
 	@Override
-	public int getTotalT() {
+	public int mainTotalCount() {
 		
 		log.info("total count");
-		return mapper.getTotalCountT();
+		
+		return mapper.mainTotalCount();
 	}
 
 	@Override
-	public int getTotalF() {
+	public int listTotalCount(String boardwriter) {
 		
 		log.info("total count");
-		return mapper.getTotalCountF();
+		
+		return mapper.listTotalCount(boardwriter);
 	}
 
 }

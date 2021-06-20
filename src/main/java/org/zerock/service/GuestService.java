@@ -20,5 +20,5 @@ public interface GuestService {
 	
 	public GuestVO get(Long bno);
 	
-	public int getTotalG();
+	public int guestTotalCount(String guestid);
 }

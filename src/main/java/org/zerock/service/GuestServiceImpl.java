@@ -71,10 +71,10 @@ public class GuestServiceImpl implements GuestService{
 	}
 
 	@Override
-	public int getTotalG() {
+	public int guestTotalCount(String guestid) {
 		
 		log.info("total count");
 		
-		return mapper.getTotalCount();
+		return mapper.guestTotalCount(guestid);
 	}
 }

@@ -26,7 +26,7 @@ public interface BlogService {
 	
 	public BlogVO get(Long bno);
 	
-	public int getTotalT();
+	public int mainTotalCount();
 	
-	public int getTotalF();
+	public int listTotalCount(String writer);
 }

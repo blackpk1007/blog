@@ -24,5 +24,5 @@ public interface GuestMapper {
 	
 	public GuestVO read(Long bno);
 	
-	public int getTotalCount();
+	public int guestTotalCount(String guestid);
 }

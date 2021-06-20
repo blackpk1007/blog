@@ -66,7 +66,7 @@
 		]]>
 	</select>
 	
-	<select id="getTotalCountT" resultType="int">
+	<select id="mainTotalCount" resultType="int">
 	<![CDATA[
 	select 
 		count(*) from blog_board 
@@ -75,12 +75,12 @@
 	]]> 
 	</select>
 	
-	<select id="getTotalCountF" resultType="int">
+	<select id="listTotalCount" resultType="int">
 	<![CDATA[
 	select 
 		count(*) from blog_board 
 	where
-		boardbno > 0
+		boardbno > 0 and boardwriter = #{boardwriter}
 	]]> 
 	</select>
 

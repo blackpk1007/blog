@@ -39,10 +39,12 @@
 		select * from blog_guest where guestbno = #{guestbno}
 	</select>
 	
-		<select id="getTotalCount" resultType="int">
+	<select id="guestTotalCount" resultType="int">
+	<![CDATA[
 	select 
-		count(*) fromblog_guest 
+		count(*) from blog_guest 
 	where
-		guestbno > 0 
+		guestbno > 0 and guestwriter = #{guestwriter} 
+	]]> 
 	</select>
 </mapper>
