@@ -25,7 +25,7 @@ public interface BlogMapper {
 	
 	public int delete(Long bno);
 	
-	public int mainTotalCount();
+	public int mainTotalCount(CriteriaTen cri);
 	
 	public int listTotalCount(String boardwriter);
 	

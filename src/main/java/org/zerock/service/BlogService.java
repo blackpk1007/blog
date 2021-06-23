@@ -5,7 +5,6 @@ import java.util.List;
 import org.zerock.domain.BlogVO;
 import org.zerock.domain.CriteriaFive;
 import org.zerock.domain.CriteriaTen;
-
 public interface BlogService {
 	
 	public List<BlogVO> homeList();
@@ -26,7 +25,7 @@ public interface BlogService {
 	
 	public BlogVO get(Long bno);
 	
-	public int mainTotalCount();
+	public int mainTotalCount(CriteriaTen cri);
 	
 	public int listTotalCount(String writer);
 }

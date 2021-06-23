@@ -41,13 +41,15 @@ li.page-numbers{
 			<h2 class="site-description">Minimalist Portfolio HTML Template</h2>
 		</div>
 		</header>
-		<form id='searchForm' action="/main/1" method='get'>
+		<form id='searchForm' action="/main" method='get'>
         	<select name='type'>
             	<option value="" <c:out value="{pageMaker.cri.type == null?'selected':''}"/>>--</option>
                 <option value="T" <c:out value="{pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
                 <option value="W" <c:out value="{pageMaker.cri.type eq 'W'?'selected':''}"/>>작성자</option>
             </select>
             <input type="text" name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' placeholder="검색어 입력" />
+            <input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+            <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
            <!-- <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>'/>
             <input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>'/> -->
             <button class='btn btn-default'>Search</button>
@@ -90,9 +92,11 @@ li.page-numbers{
 					</c:if>
 				</ul>
 			</div>
-			<form id='actionForm' action="/main/1" method='get'>
+			<form id='actionForm' action="/main" method='get'>
                	<input type='hidden' name='type' value='<c:out value="${pageMaker.cri.type}"/>'>
                	<input type='hidden' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>'>
+               	<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+                <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
             </form>
 	<!-- .container -->
 	<footer id="colophon" class="site-footer">
@@ -115,7 +119,7 @@ li.page-numbers{
 
 <script type="text/javascript">
 $(document).ready(function(){
-	
+	var actionForm = $("#actionForm");
 //	var boardwriter = $(".boardwriter");
 	
 	
@@ -129,8 +133,18 @@ $(document).ready(function(){
 	//});
 	
 //});
-
-var searchForm = $("#searchForm");
+	$(".page-numbers a").on("click", function(e){
+		
+		e.preventDefault();
+		
+		console.log('click');
+		
+		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+		
+		actionForm.submit();
+	});
+	
+	var searchForm = $("#searchForm");
 	
 	$("#searchForm button").on("click", function(e){
 		
@@ -144,8 +158,8 @@ var searchForm = $("#searchForm");
 			return false;
 		}
 		
-	//	searchForm.find("input[name='pageNum']").val("1");
-	//	e.preventDefault();
+		searchForm.find("input[name='pageNum']").val("1");
+		e.preventDefault();
 		
 		searchForm.submit();
 	});

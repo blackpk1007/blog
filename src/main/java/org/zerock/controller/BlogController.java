@@ -38,11 +38,10 @@ public class BlogController {
 	private UserService uservice;
 	private GuestService gservice;
 	
-	@GetMapping("/main/{page}")
-	public String homePage(Model model, @PathVariable("page") int page){
-		
-		CriteriaTen cri = new CriteriaTen(page, 10);
-		int total = bservice.mainTotalCount();
+	@GetMapping("/main")
+	public String homePage(Model model, CriteriaTen cri){
+
+		int total = bservice.mainTotalCount(cri);
 		
 		model.addAttribute("blist", bservice.mainpage(cri));
 		model.addAttribute("pageMaker", new PageDTOT(cri, total));
@@ -186,7 +185,7 @@ public class BlogController {
 	@GetMapping("/{boardwriter}/guest/{page}")
 	public String guest(@PathVariable("boardwriter") String boardwriter, 
 					    @PathVariable("page") int page, Model model) {
-		CriteriaTen cri = new CriteriaTen(page, 10);
+		CriteriaTen cri = new  CriteriaTen(page, 10);
 		int total = gservice.guestTotalCount(boardwriter);
 		
 		log.info("guest : " + boardwriter);

@@ -4,7 +4,7 @@
 	
 <mapper namespace="org.zerock.mapper.BlogMapper">
 
-	<sql id="criteriaTen">
+	<sql id="CriteriaTen">
 		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
 			<foreach item='type' collection="typeArr">
 				<trim prefix="OR">
@@ -53,17 +53,16 @@
 			from 
 				blog_board 
 			where
+		]]>	
+		
+		<include refid="CriteriaTen" />
 			
-		]]>
-		
-		<include refid="criteriaTen"></include>
-		
 		<![CDATA[
 			    rownum <= #{pageNum} * #{amount})
 			where 
 				rn > (#{pageNum} -1) * #{amount}
-		
 		]]>
+		
 	</select>
 	
 	<select id="mainTotalCount" resultType="int">
@@ -71,6 +70,11 @@
 	select 
 		count(*) from blog_board 
 	where
+	]]> 
+	
+	<include refid="CriteriaTen" />
+	
+	<![CDATA[
 		boardbno > 0
 	]]> 
 	</select>
@@ -105,7 +109,7 @@
 	<select id="read" resultType="org.zerock.domain.BlogVO">
 		select * from blog_board where boardbno = #{boardbno}
 	</select>
-	
+	 
 	<insert id="insert">
 		insert into blog_board (boardwriter, boardtitle, boardcontent, boardbno) 
 		values (#{boardwriter}, #{boardtitle}, #{boardcontent}, (select nvl(max(boardbno)+1, 1) from blog_board))

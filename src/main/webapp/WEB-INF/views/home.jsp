@@ -41,13 +41,15 @@ li.page-numbers{
 			<h2 class="site-description">Minimalist Portfolio HTML Template</h2>
 		</div>
 		</header>
-		<form id='searchForm' action="/main/1/" method='get'>
+		<form id='searchForm' action="/main" method='get'>
         	<select name='type'>
             	<option value="" <c:out value="{pageMaker.cri.type == null?'selected':''}"/>>--</option>
                 <option value="T" <c:out value="{pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
                 <option value="W" <c:out value="{pageMaker.cri.type eq 'W'?'selected':''}"/>>작성자</option>
             </select>
             <input type="text" name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' placeholder="검색어 입력" />
+            <input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+            <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
             <button class='btn btn-default'>Search</button>
     	</form>
 			<c:forEach items="${blist}" var="blog">

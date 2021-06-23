@@ -54,7 +54,7 @@ public class BlogServiceImpl implements BlogService{
 	@Override
 	public List<BlogVO> homeList(){
 		
-		log.info("getList");
+		log.info("homeList");
 		
 		return mapper.homeList();
 	}
@@ -62,7 +62,7 @@ public class BlogServiceImpl implements BlogService{
 	@Override
 	public List<BlogVO> mainpage(CriteriaTen cri){
 		
-		log.info("getList");
+		log.info("mainpage");
 		
 		return mapper.mainpage(cri);
 	}
@@ -92,17 +92,17 @@ public class BlogServiceImpl implements BlogService{
 	}
 
 	@Override
-	public int mainTotalCount() {
+	public int mainTotalCount(CriteriaTen cri) {
 		
-		log.info("total count");
+		log.info("main total count");
 		
-		return mapper.mainTotalCount();
+		return mapper.mainTotalCount(cri);
 	}
 
 	@Override
 	public int listTotalCount(String boardwriter) {
 		
-		log.info("total count");
+		log.info("list total count");
 		
 		return mapper.listTotalCount(boardwriter);
 	}
