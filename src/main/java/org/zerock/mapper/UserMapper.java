@@ -14,4 +14,6 @@ public interface UserMapper {
 	
 	public int modify(UserVO user);
 	
+	public UserVO memberread(String userid);
+	
 }
