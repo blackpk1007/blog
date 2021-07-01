@@ -30,54 +30,6 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form">
-					<span class="login100-form-title p-b-26">
-						Welcome
-					</span>
-					<span class="login100-form-title p-b-48">
-						<i class="zmdi zmdi-font"></i>
-					</span>
-
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email">
-						<span class="focus-input100" data-placeholder="Email"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-						<input class="input100" type="password" name="pass">
-						<span class="focus-input100" data-placeholder="Password"></span>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
-								Login
-							</button>
-						</div>
-					</div>
-
-					<div class="text-center p-t-115">
-						<span class="txt1">
-							Don’t have an account?
-						</span>
-
-						<a class="txt2" href="#">
-							Sign Up
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -110,24 +62,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="/resources/dist/js/sb-admin-2.js"></script>
-	
-<script>
-$(".btn-success").on("click", function(e){
-	
-	e.preventDefault();
-	$("form").submit();
-	
-});	
-</script>
-<c:if test="${param.logout != null }">
-	<script>
-		$(document).ready(function(){
-			alert("로그아웃하였습니다.");
-		});
-	</script>
-</c:if>
-	<div id="dropDownSelect1"></div>
-	
+
 <!--===============================================================================================-->
 	<script src="/resources/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -144,6 +79,21 @@ $(".btn-success").on("click", function(e){
 	<script src="/resources/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="/resources/js/main.js"></script>
-
+	
+<script>
+$(".btn-success").on("click", function(e){
+	
+	e.preventDefault();
+	$("form").submit();
+	
+});	
+</script>
+<c:if test="${param.logout != null }">
+	<script>
+		$(document).ready(function(){
+			alert("로그아웃하였습니다.");
+		});
+	</script>
+</c:if>
 </body>
 </html>
