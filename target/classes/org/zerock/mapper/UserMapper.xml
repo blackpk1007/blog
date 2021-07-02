@@ -6,10 +6,11 @@
 	<resultMap type="org.zerock.domain.UserVO" id="userMap">
 		<id property="userid" column="userid"/>
 		<result property="userid" column="userid"/>
-		<result property="userpw" column="userpw"/>
-		<result property="userName" column="username"/>
-		<result property="regDate" column="regdate"/>
-		<result property="updateDate" column="updatedate"/>
+		<result property="userpassword" column="userpw"/>
+		<result property="userinformation" column="userinformation"/>
+		<result property="userhobby" column="userhobby"/>
+		<result property="usersysdate" column="usersysdate"/>
+		<result property="userbno" column="userbno"/>
 		<collection property="authList" resultMap="authMap"></collection>
 	</resultMap>
 	
