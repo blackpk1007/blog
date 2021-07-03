@@ -62,15 +62,6 @@
                     </div>
                     <a href="/" class="login100-form-btnk">Login</a>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-					<div class="text-center p-t-115">
-						<span class="txt1">
-							Don’t have an account?
-						</span>
-
-						<a class="txt2" href="#">
-							Sign Up
-						</a>
-					</div>
 				</form>
 			</div>
 		</div>
