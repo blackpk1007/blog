@@ -3,6 +3,7 @@ package org.zerock.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,7 @@ public class GuestController {
 
 	private GuestService gservice;
 	
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping(value = "/register", consumes = "application/json", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity<String> GuestRegister(@RequestBody GuestVO vo) {
 		
@@ -41,6 +43,7 @@ public class GuestController {
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
+	@PreAuthorize("principal.userid == #vo.guestwriter")
 	@RequestMapping(method = { RequestMethod.PUT, RequestMethod.PATCH }, 
 			value = "/{guestbno}", consumes = "application/json")
 	public ResponseEntity<String> modify(@RequestBody GuestVO vo, @PathVariable("guestbno") Long guestbno){
@@ -56,6 +59,7 @@ public class GuestController {
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
+	@PreAuthorize("principal.userid == #vo.guestwriter")
 	@DeleteMapping("/{guestbno}")
 	public ResponseEntity<String> remove(@RequestBody GuestVO vo, @PathVariable("guestbno") Long guestbno){
 		
