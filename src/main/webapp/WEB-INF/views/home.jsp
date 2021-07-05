@@ -40,6 +40,9 @@ li.page-numbers{
 			<h1 class="site-title"><a href="/" rel="home">JRag</a></h1>
 			<h2 class="site-description">Minimalist Portfolio HTML Template</h2>
 		</div>
+		<div>
+			<a href="/customLogin">Login</a>
+		</div>
 		</header>
 		<form id='searchForm' action="/main" method='get'>
         	<select name='type'>
