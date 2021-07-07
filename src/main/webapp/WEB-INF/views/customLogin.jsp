@@ -60,7 +60,7 @@
                      	   <input name="remember-me" type="checkbox">Remember Me
                         </label>
                     </div>
-                    <a href="/" class="login100-form-btnk">Login</a>
+                    <a href="/" class="login100-form-btnk btn-success">Login</a>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 				</form>
 			</div>
