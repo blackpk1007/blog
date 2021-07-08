@@ -35,4 +35,12 @@
 		update blog_user set userhobby = #{userhobby}, userinformation = #{userinformation} where userbno = #{userbno}
 	</update>
 	
+	<select id="memberread" resultType="org.zerock.domain.UserVO">
+		SELECT
+			user.userid, userpassword, userinformation, userhobby, usersysdate, updatedate, auth
+		FROM
+			tbl_member mem LEFT OUTER JOIN tbl_member_auth auth on mem.userid = auth.userid
+		WHERE
+			mem.userid = #{userid}
+	</select>
 </mapper>
