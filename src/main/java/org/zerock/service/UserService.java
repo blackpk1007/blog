@@ -16,6 +16,4 @@ public interface UserService {
 	public UserVO test(String userid);
 	
 	public boolean modify(UserVO user);
-	
-	public UserVO memberread(String userid);
 }

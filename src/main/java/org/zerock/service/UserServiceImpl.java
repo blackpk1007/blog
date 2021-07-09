@@ -55,10 +55,4 @@ public class UserServiceImpl implements UserService{
 		return mapper.modify(user) == 1;
 	}
 
-	@Override
-	public UserVO member(String userid) {
-		
-		return null;
-	}
-
 }
