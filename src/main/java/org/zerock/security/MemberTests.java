@@ -30,9 +30,9 @@ public class MemberTests {
 	@Test
 	public void testInsertMember() {
 		
-		String sql = "insert into tbl_member(userid, userpw, username) values (?, ?, ?)";
+		String sql = "insert into blog_user(userid, userpassword) values (?, ?)";
 		
-		for(int i = 0; i < 30; i++) {
+		for(int i = 22; i < 30; i++) {
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -43,12 +43,11 @@ public class MemberTests {
 				
 				pstmt.setString(2, pwencoder.encode("pw" + i));
 				
-				if(i < 20) {
+				if(i < 30) {
 					
 					pstmt.setString(1, "user"+i);
-					pstmt.setString(3, "일반사용자"+i);
 				}
-				else if(i < 27) {
+				else if(i < 31) {
 					
 					pstmt.setString(1, "manager"+i);
 					pstmt.setString(3, "운영자"+i);
@@ -73,9 +72,9 @@ public class MemberTests {
 	@Test
 	public void testInsertAuth() {
 		
-		String sql = "insert into tbl_member_auth (userid, auth) values (?, ?)";
+		String sql = "insert into blog_auth (userid, auth) values (?, ?)";
 		
-		for(int i = 0; i < 30; i++) {
+		for(int i = 11; i < 30; i++) {
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -84,12 +83,12 @@ public class MemberTests {
 				con = ds.getConnection();
 				pstmt = con.prepareStatement(sql);
 				
-				if(i < 20) {
+				if(i < 30) {
 					
 					pstmt.setString(1, "user"+i);
 					pstmt.setString(2, "ROLE_USER");
 				}
-				else if(i < 27) {
+				else if(i < 31) {
 					
 					pstmt.setString(1, "manager"+i);
 					pstmt.setString(2, "ROLE_MEMBER");
