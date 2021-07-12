@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
 <%@ include file="../includes/header.jsp" %>
 		<nav id="site-navigation" class="main-navigation">
@@ -97,6 +98,17 @@ function list_link(){
 <script type="text/javascript">
 $(document).ready(function(){
 	
+	<sec:authentication property="principal" var="pinfo"/>
+	
+	<sec:authorize access="isAuthenticated()">
+	
+	<c:if test="${pinfo.username eq blog.boardwriter}">
+	
+	<button data-oper="modify" class="btn btn-default" onclick="modify_link()">Modify</button> 
+	
+	</c:if>
+		
+	</sec:authorize>
 //	var commentform = $("#commentform");
 
 //	$('button').on("click", function(e){

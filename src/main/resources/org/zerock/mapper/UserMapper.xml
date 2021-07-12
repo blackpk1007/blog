@@ -6,7 +6,7 @@
 	<resultMap type="org.zerock.domain.UserVO" id="userMap">
 		<id property="userid" column="userid"/>
 		<result property="userid" column="userid"/>
-		<result property="userpassword" column="userpw"/>
+		<result property="userpassword" column="userpassword"/>
 		<result property="userinformation" column="userinformation"/>
 		<result property="userhobby" column="userhobby"/>
 		<result property="usersysdate" column="usersysdate"/>
@@ -35,7 +35,7 @@
 		update blog_user set userhobby = #{userhobby}, userinformation = #{userinformation} where userbno = #{userbno}
 	</update>
 	
-	<select id="memberread" resultType="org.zerock.domain.UserVO">
+	<select id="memberread" resultMap="userMap">
 		SELECT	
 			buser.userid, userpassword, userinformation, userhobby, usersysdate, auth
 		FROM

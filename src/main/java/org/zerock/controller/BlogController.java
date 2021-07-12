@@ -129,7 +129,7 @@ public class BlogController {
 		
 	}
 	
-	@PreAuthorize("principal.userid == #blog.boardwriter")
+	@PreAuthorize("principal.username == #blog.boardwriter")
 	@PostMapping("/{boardwriter}/modify")
 	public String modify(@PathVariable("boardwriter") String boardwriter, BlogVO blog, @RequestParam("boardbno") Long bno, RedirectAttributes rttr) {
 		
@@ -141,7 +141,7 @@ public class BlogController {
 		return "redirect:/"+boardwriter+"/get/"+bno+"/1";
 	}
 	
-	@PreAuthorize("principal.userid == #boardwriter")
+	@PreAuthorize("principal.username == #boardwriter")
 	@PostMapping("/{boardwriter}/remove")
 	public String remove(@PathVariable("boardwriter") String boardwriter, @RequestParam("boardbno") Long bno, RedirectAttributes rttr) {
 		
@@ -163,7 +163,7 @@ public class BlogController {
 		return "blog/about";
 	}
 	
-	@PreAuthorize("principal.userid == #boardwriter")
+	@PreAuthorize("principal.username == #boardwriter")
 	@GetMapping("/{boardwriter}/about/modify")
 	public String aboutmodify(@PathVariable("boardwriter") String boardwriter, Model model) {
 		
