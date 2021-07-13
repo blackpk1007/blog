@@ -36,7 +36,14 @@
 								aria-required="true" required="required" readonly="readonly"><c:out value="${blog.boardcontent }"/></textarea>
 							</p>
 							<p class="form-submit">
-								<button data-oper="modify" class="btn btn-default" onclick="modify_link()">Modify</button>
+							
+								<sec:authentication property="principal" var="pinfo"/>		
+								<sec:authorize access="isAuthenticated()">
+								<c:if test="${pinfo.username eq blog.boardwriter}">
+									<button data-oper="modify" class="btn btn-default" onclick="modify_link()">Modify</button> 
+								</c:if>
+		
+								</sec:authorize>
 								<button data-oper="list" class="btn btn-info" onclick="list_link()">List</button>
 							</p>
 					</div>
@@ -97,18 +104,6 @@ function list_link(){
 </script>
 <script type="text/javascript">
 $(document).ready(function(){
-	
-	<sec:authentication property="principal" var="pinfo"/>
-	
-	<sec:authorize access="isAuthenticated()">
-	
-	<c:if test="${pinfo.username eq blog.boardwriter}">
-	
-	<button data-oper="modify" class="btn btn-default" onclick="modify_link()">Modify</button> 
-	
-	</c:if>
-		
-	</sec:authorize>
 //	var commentform = $("#commentform");
 
 //	$('button').on("click", function(e){
