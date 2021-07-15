@@ -20,7 +20,12 @@
 <!-- #masthead -->
 		<div id="content" class="site-content">
 		<div class="panel-heading">
+		<sec:authentication property="principal" var="pinfo"/>		
+		<sec:authorize access="isAuthenticated()">
+		<c:if test="${pinfo.username eq blog.boardwriter}">
 			<button data-oper="aboutmodify" class="btn btn-default" onclick="aboutmodify_link()">Modify</button>
+		</c:if>
+		</sec:authorize>
      	</div>   <!-- /.panel-heading -->
 			<div id="primary" class="content-area column full">
 				<main id="main" class="site-main">

@@ -202,6 +202,7 @@ public class BlogController {
 		return "blog/guest";
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/{boardwriter}/guest/register")
 	public String guestRegister(@PathVariable("boardwriter") String boardwriter) {
 		
