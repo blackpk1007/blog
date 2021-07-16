@@ -20,7 +20,12 @@
 
 		<!-- #masthead -->
      <div class="panel-heading">Board List Page
+     <sec:authentication property="principal" var="pinfo"/>		
+		<sec:authorize access="isAuthenticated()">
+		<c:if test="${pinfo.username eq blog.boardwriter}">
             	<button id='regBtn' type="button" class="btn btn-xs pull-right" onclick="register_link()">Register New Blog</button>
+        </c:if>
+		</sec:authorize>
      </div>   <!-- /.panel-heading -->
 		<div id="content" class="site-content">
 			<div id="primary" class="content-area column two-thirds">
